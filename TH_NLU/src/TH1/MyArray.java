@@ -15,51 +15,7 @@ public class MyArray {
 		return result;
 	}
 
-//	public static int[] removeDuplicates(int[] array) {
-//		int count = 0;
-//		
-//		int SumIndex = array.length;
-//		for (int i = 0; i < array.length; i++) {
-//			for (int j = i + 1; j < array.length; j++) {
-//				if (array[i] == array[j]) {
-//					SumIndex--;
-//				}
-//			}
-//		}
-//		int result[] = new int[SumIndex];
-//		
-//		int k = 0;
-////		int j = i + 1;
-////		for (int i = 0; i < array.length; i++) {
-////			for (int j = i + 1; j < array.length; j++) {
-////				if (array[i] == array[j]) {
-////					break;
-////				}
-////			}
-////			result[k++] = array[i];
-////		}
-////		
-//
-//		System.out.println(SumIndex);
-//		return result;
-//	}
 
-//	public static int[] removeDuplicates(int[] array) {
-//		int SumIndex = array.length;
-//		for (int i = 0; i < array.length; i++) {
-//			for (int j = i + 1; j < array.length; j++) {
-//				if (array[i] == array[j]) {
-//					SumIndex--;
-//				}
-//			}
-//		}
-//		int result[] = new int[SumIndex];
-//		
-//		
-//		
-//		return result;
-//	}
-//	
 	public static int[] removeDuplicates(int[] array) {
 		int[] result = array;
 		for (int i = 0; i < result.length; i++) {
