@@ -54,10 +54,10 @@ public class _3_lengthOfLongestSubstring_medium {
 					}
 				}
 			}
-
 		}
 		return result + 1;
 	}
+	
 
 	public static void main(String[] args) {
 		String s1 = "abcabcbb";
