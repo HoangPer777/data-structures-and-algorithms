@@ -9,18 +9,18 @@ public class Task1_3 {
 	// Where n represents the number of rows
 	public static void printPascalTriangle(int row) {
 		for (int i = 0; i < row; i++) {
-//			sử dụng đệ quy
-			System.out.println( "\t" + Arrays.toString(getPascalTriangle(i)) + "\t"); 
-			
+			for (int j = 0; j < row - i - 1; j++) {
+				System.out.print(" "); // In khoảng trắng để tạo hình tam giác
+			}
+			System.out.println(Arrays.toString(getPascalTriangle(i)));
 		}
-		// TODO
 	}
 
 	// get the nth row.
 	// For example: n=1 ==> {1}, n=2 ==> {1, 1}, ...
 	public static int[] getPascalTriangle(int n) {
 		// TODO
-		if (n <= 1) {
+		if (n < 1) {
 			return new int[] { 1 };
 		} else {
 			int[] prevRow = getPascalTriangle(n - 1);

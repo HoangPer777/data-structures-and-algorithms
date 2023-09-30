@@ -32,8 +32,11 @@ public class Task1_2 {
 	// Input: 10 11 12 -1 14 10 17 19 20
 	// Output(k=3): 10 11 12 12 14 16 17 19 20
 	public int[] fillMissingValues(int k) {
+		
+	
 
 		for (int i = 0; i < arrayNum.length; i++) {
+			
 			outer: if (arrayNum[i] == -1) {
 				int left = i - (k / 2); // 1.5 -> 1
 				int right = i + (k / 2);
@@ -57,6 +60,13 @@ public class Task1_2 {
 					int maxRight = right + 1;
 					arrayNum[i] = Math.min(average(minLeft, right, k), average(left, maxRight, k));
 				}
+			}
+			
+		}
+		for(int i = 0; i < arrayNum.length - 1; i++) {
+			if (arrayNum[i] > arrayNum[i + 1]) {
+				arrayNum[i + 1] = -1;
+				fillMissingValues(k);
 			}
 		}
 		return arrayNum;
@@ -87,7 +97,7 @@ public class Task1_2 {
 //		int[] numMissingValues = MyArray.getMissingValues();
 //		System.out.println(Arrays.toString(numMissingValues));
 
-		int[] nums = {10, 11, 12, -1, 14, 10, 17, 19, 20,};
+		int[] nums = { 10, 11, 12, -1, 14, 10, 17, 19, 20, };
 		Task1_2 MyArray2 = new Task1_2(nums);
 		int[] filledMissingValues = MyArray2.fillMissingValues(3);
 		System.out.println(Arrays.toString(filledMissingValues));

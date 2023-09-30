@@ -1,0 +1,8 @@
+package TH2;
+
+public class Task1_4 {
+	public static int MoveTower(disk, source, dest, sqare) {
+		
+		return 0;
+	}
+}
