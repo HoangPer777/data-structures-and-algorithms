@@ -1,4 +1,4 @@
-package TH3;
+package Task1;
 
 public class Task1_3 {
 	private int[] array;
