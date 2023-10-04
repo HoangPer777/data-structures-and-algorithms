@@ -1,5 +1,11 @@
 package TH1;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 // class MyCaesar
 public class Task2 {
 
@@ -58,6 +64,54 @@ public class Task2 {
 		}
 		return sb.toString();
 	}
+	
+	
+	
+	
+//	
+	public void encrypt(String srcFile, String desFile) {
+	    try {
+	        // Mở file nguồn để đọc và file đích để ghi
+	        BufferedReader reader = new BufferedReader(new FileReader(srcFile));
+	        BufferedWriter writer = new BufferedWriter(new FileWriter(desFile));
+
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            // Mã hóa mỗi dòng nội dung và ghi vào file đích
+	            String encryptedLine = encrypt(line);
+	            writer.write(encryptedLine);
+	            writer.newLine(); // Thêm dấu xuống dòng sau mỗi dòng đã mã hóa
+	        }
+
+	        // Đóng các luồng sau khi hoàn thành
+	        reader.close();
+	        writer.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	public void decrypt(String srcFile, String desFile) {
+	    try {
+	        // Mở file nguồn để đọc và file đích để ghi
+	        BufferedReader reader = new BufferedReader(new FileReader(srcFile));
+	        BufferedWriter writer = new BufferedWriter(new FileWriter(desFile));
+
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            // Giải mã mỗi dòng nội dung và ghi vào file đích
+	            String decryptedLine = decrypt(line);
+	            writer.write(decryptedLine);
+	            writer.newLine(); // Thêm dấu xuống dòng sau mỗi dòng đã giải mã
+	        }
+
+	        // Đóng các luồng sau khi hoàn thành
+	        reader.close();
+	        writer.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
 
 	public static void main(String[] args) {
 		Task2 task = new Task2(4);
@@ -77,5 +131,10 @@ public class Task2 {
 
 		String decryptedStringByChar = task.decrypt("eLserkTiv567123#!@ TvsZmt");
 		System.out.println(decryptedStringByChar);
+		
+		System.out.println("advance");
+		task.encrypt("D:\\aaa\\WorkSpace_21\\TH_NLU\\src\\TH1\\text_encrypt.txt", "D:\\aaa\\WorkSpace_21\\TH_NLU\\src\\TH1\\encrypted.txt");
+		task.decrypt("D:\\aaa\\WorkSpace_21\\TH_NLU\\src\\TH1\\encrypted.txt", "D:\\aaa\\WorkSpace_21\\TH_NLU\\src\\TH1\\decrypted.txt");
+		
 	}
 }

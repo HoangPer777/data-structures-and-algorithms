@@ -58,18 +58,48 @@ public class Task2_2 {
 			System.out.println();
 		}
 	}
-	
+
 	public static void drawPyramid_5(int n) {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n - i - 1; j++) {
 				System.out.print(" "); // In khoảng trắng để tạo hình tam giác
 			}
-			
+
 			for (int k = 0; k < i * 2 - 1; k++) {
 				System.out.print("*");
 //				if(k <= (i * 2 - 1) / 2) {
 //					System.out.println();
 //				}
+			}
+
+			for (int k = 0; k < 9; k++) {
+				System.out.print("*");
+
+			}
+			System.out.println();
+		}
+	}
+
+	public static void drawPyramid_6(int n) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(" ");
+			}
+			for (int h = 0; h < n - i; h++) {
+				System.out.print("*" + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public static void drawPyramid_7(int n) {
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(" ");
+			}
+			for (int h = 0; h < n - i; h++) {
+				System.out.print(n - i + " ");
 			}
 			System.out.println();
 		}
@@ -78,8 +108,10 @@ public class Task2_2 {
 	public static void main(String[] args) {
 //		drawPyramid_1(9);
 //		drawPyramid_2(9);
-//		drawPyramid_3(9);
+		drawPyramid_3(9);
 //		drawPyramid_4(9);
-		drawPyramid_5(9);
+//		drawPyramid_5(9);
+//		drawPyramid_6(9);
+//		drawPyramid_7(9);
 	}
 }

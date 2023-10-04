@@ -1,8 +1,6 @@
 package TH1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Map;
 
 public class MyArray {
 	public static int[] mirror(int[] array) {
