@@ -35,26 +35,31 @@ public class Task1_2 {
 		return binarySearch(target, low, hight);
 	}
 
-	public int binarySearch(int target, int low, int hight) {
-		int mid = (low + hight) / 2;
-		if (target == array[mid]) {
-			return mid + 1;
-		} else if (target < array[mid]) {
-			return binarySearch(target, low, mid - 1);
-		} else {
-			return binarySearch(target, mid + 1, hight);
+	public int binarySearch(int target, int low, int hight) {		
+		if (low > hight) {
+			return -1;
+		}else {
+			int mid = (low + hight) / 2;
+			if (target == array[mid]) {
+				return mid + 1;
+			} else if (target < array[mid]) {
+				return binarySearch(target, low, mid - 1);
+			} else {
+				return binarySearch(target, mid + 1, hight);
+			}
 		}
+		
 
 	}
 
 	public static void main(String[] args) {
 		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		Task1_2 task = new Task1_2(array);
-	
-		int result = task.iterativeBinarySearch(10);
-		System.out.println(result);
 
-		int result2 = task.recursiveBinarySearch(10);
+//		int result = task.iterativeBinarySearch(10);
+//		System.out.println(result);
+
+		int result2 = task.recursiveBinarySearch(2);
 		System.out.println(result2);
 	}
 }
