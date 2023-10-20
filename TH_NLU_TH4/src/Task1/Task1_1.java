@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public class Task1_1 {
 	public static void selectionSort(int[] array) {
-		 for (int i = 0; i < array.length - 1; i++) {
-		        int maxIndex = i;
-		        for (int j = i + 1; j < array.length; j++) {
-		            if (array[maxIndex] < array[j]) {
-		                maxIndex = j;
-		            }
-		        }
-		        swap(array, maxIndex, i);
-		    }
+		for (int i = 0; i < array.length - 1; i++) {
+			int maxIndex = i;
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[maxIndex] < array[j]) {
+					maxIndex = j;
+				}
+			}
+			swap(array, maxIndex, i);
+		}
 	}
 
 	private static void swap(int[] array, int maxIndex, int j) {
@@ -20,39 +20,44 @@ public class Task1_1 {
 		array[maxIndex] = array[j];
 		array[j] = stemp;
 	}
-	
-//	chưa xong
-//	public static void selectionSort_recursive(int[] array) {
-//		int stepNum;
-//		if(stepNum > array.length - 1) {
-//			return;
-//		}else {
-//			for(int j = stepNum; j < array.length; j++) {
-//				int indexMax = findMax(stepNum,  array);
-//				swap(array, indexMax, j);
-//			}
-//		}
-////		selectionSort_recursive(array, stepNum + 1);
-//	}
-	
-	
-	
-//
-//	private static int findMax(int stepNum, int[] array) {
-//		int max = array[stepNum];
-//		int indexMax = stepNum;
-//		for(indexMax = stepNum; indexMax < array.length; indexMax++) {
-//			if(max < array[indexMax]) {
-//				max = array[indexMax];
-//			}
-//		}
-//		return indexMax;
-//	}
+
+//	recursive
+	public static void selectionSort_recursive(int[] array) {
+		int n = array.length;
+		if (n <= 1) {
+			return;
+		} else {
+			sort_recursive(n, array);
+		}
+	}
+
+	public static void sort_recursive(int n, int[] array) {
+		if (n <= 0) {
+			return;
+		} else {
+			findMin_swap(n - 1, array);
+			sort_recursive(n - 1, array);
+		}
+	}
+
+	private static int findMin_swap(int value, int[] array) {
+		int min = array[value];
+		int indexmin = value;
+		for (int i = value; i >= 0; i--) {
+			if(min > array[i]) {
+				min = array[i];
+				indexmin = i;
+			}
+		}
+		swap(array, indexmin, value);
+		return indexmin;
+	}
 
 	public static void main(String[] args) {
-		int array[] = {1 , 6, 3, 9, 5};
+		int array[] = { 1, 6, 3, 9, 5, 3, 6, 2, 8, 0, 7, 4 };
 		selectionSort(array);
-//		selectionSort_recursive(array, 0);
+		System.out.println(Arrays.toString(array));
+		selectionSort_recursive(array);
 		System.out.println(Arrays.toString(array));
 	}
 }

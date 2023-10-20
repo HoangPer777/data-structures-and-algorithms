@@ -25,7 +25,7 @@ public class Task2_2 {
 //		int pivot = getPivot_MedianOfThree(array);
 //		int pivot = getPivot_Last(array);
 		int pivot = array[hight];
-		int i = (low - 1);
+		int i = (low - 1); // Khởi tạo trỏ i ở ngoài mảng
 		for (int j = low; j <= hight - 1; j++) {
 //			Tăng dần
 //			if (array[j] < pivot) {
@@ -33,10 +33,12 @@ public class Task2_2 {
 //				swap(array, i, j);
 //			}
 			if (array[j] > pivot) {
-	            i++;
-	            swap(array, i, j);
+	            i++; // tăng trỏ i để đánh dấu phần tử lớn hơn pivot
+	            swap(array, i, j); // hoán đổi i, j để đưa phần từ lớn hơn về phái bên phải
+ 
 	        }
 		}
+		 // Hoán đổi pivot từ vị trí cuối cùng của phần bên trái vào vị trí của pivot.
 		swap(array, i + 1, hight);
 		return (i + 1);
 	}

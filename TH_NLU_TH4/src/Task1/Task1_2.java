@@ -15,7 +15,7 @@ public class Task1_2 {
 	
 	
 	public static void bubbleSort_recursive(int[] array, int n) {
-		if(n == 1) {
+		if(n <= 0) {
 			return;
 		}
 		for(int i = 0; i < array.length - 1;i++) {
@@ -26,7 +26,6 @@ public class Task1_2 {
 		bubbleSort_recursive(array, n - 1);
 	}
 
-	
 	private static void swap(int[] array, int j) {
 		int stemp = array[j + 1];
 		array[j + 1] = array[j];
@@ -34,8 +33,9 @@ public class Task1_2 {
 		
 	}
 	public static void main(String[] args) {
-		int array[] = {1 , 6, 3, 9, 5};
+		int array[] = { 1, 6, 3, 9, 5, 3, 6, 2, 8, 0, 7, 4 };
 		bubbleSort(array);
+		System.out.println(Arrays.toString(array));
 		bubbleSort_recursive(array, array.length);
 		System.out.println(Arrays.toString(array));
 	}

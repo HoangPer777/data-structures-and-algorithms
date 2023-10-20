@@ -1,0 +1,140 @@
+
+1. Chọn phần tử pivot, thông thường chọn ở cuối mảng: `pivot = 4`, `low = 0`, `hight = 9`.
+
+2. Mảng sau khi chọn pivot: `[1, 6, 3, 9, 5, 7, 10, 2, 8, 4]`.
+
+3. Bắt đầu vòng lặp `for`, `j` bắt đầu từ `low = 0`:
+
+    - `j = 0`: So sánh `array[0]` (1) với pivot (4), không thỏa mãn, `j` tăng lên `j = 1`.
+    - `j = 1`: So sánh `array[1]` (6) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 0`, và hoán đổi `array[0]` và `array[1]` để đưa 6 vào phía bên phải của pivot.
+    - Mảng sau bước này: `[6, 1, 3, 9, 5, 7, 10, 2, 8, 4]`.
+
+4. Tiếp tục vòng lặp:
+
+    - `j = 2`: So sánh `array[2]` (3) với pivot (4), không thỏa mãn, `j` tăng lên `j = 3`.
+    - `j = 3`: So sánh `array[3]` (9) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 1`, và hoán đổi `array[1]` và `array[3]` để đưa 9 vào phía bên phải của pivot.
+    - Mảng sau bước này: `[6, 9, 3, 1, 5, 7, 10, 2, 8, 4]`.
+
+5. Vòng lặp tiếp tục:
+
+    - `j = 4`: So sánh `array[4]` (5) với pivot (4), không thỏa mãn, `j` tăng lên `j = 5`.
+    - `j = 5`: So sánh `array[5]` (7) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 2`, và hoán đổi `array[2]` và `array[5]` để đưa 7 vào phía bên phải của pivot.
+    - Mảng sau bước này: `[6, 9, 7, 1, 5, 3, 10, 2, 8, 4]`.
+
+6. Tiếp tục vòng lặp:
+
+    - `j = 6`: So sánh `array[6]` (10) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 3`, và hoán đổi `array[3]` và `array[6]` để đưa 10 vào phía bên phải của pivot.
+    - Mảng sau bước này: `[6, 9, 7, 10, 5, 3, 1, 2, 8, 4]`.
+
+7. Tiếp tục vòng lặp:
+
+    - `j = 7`: So sánh `array[7]` (2) với pivot (4), không thỏa mãn, `j` tăng lên `j = 8`.
+    - `j = 8`: So sánh `array[8]` (8) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 4`, và hoán đổi `array[4]` và `array[8]` để đưa 8 vào phía bên phải của pivot.
+    - Mảng sau bước này: `[6, 9, 7, 10, 8, 3, 1, 2, 5, 4]`.
+
+8. Cuối cùng, `j` đến `hight - 1` và vòng lặp kết thúc.
+
+9. Hoán đổi pivot (4) từ vị trí cuối cùng của phần bên trái vào vị trí của pivot mới là `i + 1 = 5`. Kết quả cuối cùng là:
+
+   Mảng sau khi kết thúc `partition`: `[6, 3, 1, 2, 4, 9, 7, 10, 8, 5]`.
+
+10. Phương thức `partition` trả về vị trí của pivot mới (5).
+
+Mảng đã được phân chia thành hai phần:
+
+	Phần bên trái (nhỏ hơn pivot): [6, 3, 1, 2, 4].
+	
+	Phần bên phải (lớn hơn pivot): [9, 7, 10, 8, 5].
+Bây giờ, bạn có thể tiếp tục đệ quy sắp xếp cả hai phần này.
+
+
+///////////// đệ quy phần nhỏ hơn ///////////////////////////////////////
+
+
+**Phần bên trái (nhỏ hơn pivot): [6, 3, 1, 2, 4]**
+
+1. Chọn phần tử pivot, thông thường chọn ở cuối mảng: `pivot = 4`, `low = 0`, `hight = 4`.
+
+2. Mảng sau khi chọn pivot: `[6, 3, 1, 2, 4]`.
+
+3. Bắt đầu vòng lặp `for`, `j` bắt đầu từ `low = 0`:
+
+    - `j = 0`: So sánh `array[0]` (6) với pivot (4), thỏa mãn. Tăng chỉ mục `i` lên `i = 0`, và hoán đổi `array[0]` và `array[0]` (không thay đổi) để đưa 6 vào phía bên phải của pivot.
+    - Mảng sau bước này không thay đổi: `[6, 3, 1, 2, 4]`.
+
+4. Tiếp tục vòng lặp:
+
+    - `j = 1`: So sánh `array[1]` (3) với pivot (4), ko thỏa mãn. Tăng chỉ mục `i` lên `i = 1`
+    - Mảng sau bước này không thay đổi: `[6, 3, 1, 2, 4]`.
+
+5. Tiếp tục vòng lặp:
+
+    - `j = 2`: So sánh `array[2]` (1) với pivot (4), ko thỏa mãn. Tăng chỉ mục `i` lên `i = 2`
+    - Mảng sau bước này không thay đổi: `[6, 3, 1, 2, 4]`.
+
+6. Tiếp tục vòng lặp:
+
+    - `j = 3`: So sánh `array[3]` (2) với pivot (4), ko thỏa mãn. Tăng chỉ mục `i` lên `i = 3`
+    - Mảng sau bước này không thay đổi: `[6, 3, 1, 2, 4]`.
+
+*7. Vòng lặp tiếp tục:
+
+    - `j = 4`: So sánh `array[4]` (4) với pivot (4), không thỏa mãn, `j` tăng lên `j = 5`.
+
+8. Vòng lặp kết thúc và hoán đổi pivot (4) từ vị trí cuối cùng của phần bên trái vào vị trí của pivot mới là `i + 1 = 4`. Kết quả cuối cùng là:
+
+   Mảng sau khi kết thúc `partition`: `[3, 1, 2, 4, 6]`.
+
+9. Phương thức `partition` trả về vị trí của pivot mới (4).
+
+Mảng bên trái đã được phân chia thành hai phần:
+
+- Phần bên trái (nhỏ hơn pivot): `[3, 1, 2]`.
+- Phần bên phải (lớn hơn pivot): `[6]`.
+
+Bây giờ, bạn có thể đệ quy sắp xếp cả hai phần này theo cách tương tự.
+
+**Phần bên phải (lớn hơn pivot): [9, 7, 10, 8, 5]**
+
+1. Chọn phần tử pivot, thông thường chọn ở cuối mảng: `pivot = 5`, `low = 0`, `hight = 4`.
+
+2. Mảng sau khi chọn pivot: `[9, 7, 10, 8, 5]`.
+
+3. Bắt đầu vòng lặp `for`, `j` bắt đầu từ `low = 0`:
+
+    - `j = 0`: So sánh `array[0]` (9) với pivot (5), thỏa mãn. Tăng chỉ mục `i` lên `i = 0`, và hoán đổi `array[0]` và `array[0]` (không thay đổi) để đưa 9 vào phía bên phải của pivot.
+    - Mảng sau bước này không thay đổi: `[9, 7, 10, 8, 5]`.
+
+4. Tiếp tục vòng lặp:
+
+    - `j = 1`: So sánh `array[1]` (7) với pivot (5), thỏa mãn. Tăng chỉ mục `i` lên `i = 1`, và hoán đổi `array[1]` và `array[1]` (không thay đổi) để đưa 7 vào phía bên phải của pivot.
+    - Mảng sau bước này không thay đổi: `[9, 7, 10, 8, 5]`.
+
+5. Tiếp tục vòng lặp:
+
+    - `j = 2`: So sánh `array[2]` (10) với pivot (5), thỏa mãn. Tăng chỉ mục `i` lên `i = 2`, và hoán đổi `array[2]` và `array[2]` (không thay đổi) để đưa 10 vào phía bên phải của pivot.
+    - Mảng sau bước này không thay đổi: `[9, 7, 10, 8, 5]`.
+
+6. Tiếp tục vòng lặp:
+
+    - `j = 3`: So sánh `array[3]` (8) với pivot
+
+ (5), thỏa mãn. Tăng chỉ mục `i` lên `i = 3`, và hoán đổi `array[3]` và `array[3]` (không thay đổi) để đưa 8 vào phía bên phải của pivot.
+    - Mảng sau bước này không thay đổi: `[9, 7, 10, 8, 5]`.
+
+7. Vòng lặp tiếp tục:
+
+    - `j = 4`: So sánh `array[4]` (5) với pivot (5), không thỏa mãn, `j` tăng lên `j = 5`.
+
+8. Vòng lặp kết thúc và hoán đổi pivot (5) từ vị trí cuối cùng của phần bên trái vào vị trí của pivot mới là `i + 1 = 4`. Kết quả cuối cùng là:
+
+   Mảng sau khi kết thúc `partition`: `[9, 7, 10, 8, 5]`.
+
+9. Phương thức `partition` trả về vị trí của pivot mới (4).
+
+Mảng bên phải đã được phân chia thành hai phần:
+
+- Phần bên trái (nhỏ hơn pivot): `[7, 8]`.
+- Phần bên phải (lớn hơn pivot): `[9, 10]`.
+
+Bây giờ, bạn có thể đệ quy sắp xếp cả hai phần này theo cách tương tự.
