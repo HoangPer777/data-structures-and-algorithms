@@ -1,3 +1,4 @@
+package app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,10 +26,22 @@ public class StudentUtils {
 			result.add(new Student(id, firstName, lastName, birthYear, GPA));
 		}
 		reader.close();
-		System.out.println(result);
+		
 		return result;
 	}
 	public static void main(String[] args) throws IOException {
-		loadStudents("student.txt");
+//		loadStudents("D:/aaa/WorkSpace_21/TH_NLU/src/app/student.txt");
+		 try {
+	            // Replace "students.txt" with the actual file path to your student data file.
+	            String filePath = "D:\\aaa\\WorkSpace_21\\TH_NLU_TH7\\src\\app\\students.txt";
+	            ArrayList<Student> students = StudentUtils.loadStudents(filePath);
+
+	            // Now, you have an ArrayList of Student objects from the file.
+	            for (Student student : students) {
+	                System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName());
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	}
 }
