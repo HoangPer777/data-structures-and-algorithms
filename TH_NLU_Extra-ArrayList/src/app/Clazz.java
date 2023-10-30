@@ -20,7 +20,7 @@ public class Clazz {
 		@Override
 		public int compare(Student o1, Student o2) {
 			// TODO Auto-generated method stub
-			return Double.compare(o1.getGPA(), o2.getGPA());
+			return -(Double.compare(o1.getGPA(), o2.getGPA()));
 		}
 	};
 	Comparator<Student> byFirstName = new Comparator<Student>() {
@@ -51,9 +51,10 @@ public class Clazz {
 	};
 
 	// sort students according to the given comparator c
-	public void sortStudents(Comparator<Student> c) {
-		students.sort(byGPA);
-		
+	public void sortStudents(Comparator<Student> c ) {
+//		students.sort(byGPA);
+		Collections.sort(students, byGPA);
+
 
 	}
 
@@ -62,7 +63,7 @@ public class Clazz {
 		sortStudents(byGPA);
 		ArrayList<Student> topN = new ArrayList<Student>();
 		for (int i = 0; i < n; i++) {
-			topN.add(students.get(n - i));
+			topN.add(students.get(i));
 		}
 		return topN;
 	}
@@ -70,21 +71,31 @@ public class Clazz {
 	// get random n students from the list of students
 	public ArrayList<Student> getRandomNStudents(int n) {
 		ArrayList<Student> ListRandomNStudents = new ArrayList<Student>();
+		ArrayList<Student> ListRandomNStudents2 = new ArrayList<Student>();
 		ListRandomNStudents.addAll(students);
 		Collections.shuffle(ListRandomNStudents);
-		ListRandomNStudents.addAll(ListRandomNStudents.size() - n, ListRandomNStudents);
-		return ListRandomNStudents;
+		for(int i = 0; i < n; i++) {
+			ListRandomNStudents2.add(ListRandomNStudents.get(i));
+		}
+//		ListRandomNStudents.addAll(ListRandomNStudents.size() - n, ListRandomNStudents);
+		return ListRandomNStudents2;
 	}
 
 // remove a student with a given id
 	public boolean removeStudent(String id) {
-
-		for (int i = 0; i < students.size(); i++) {
-			if (id == students.get(i).getId()) {
-				students.remove(i);
+		for (Student student : students) {
+			if(Student.isStudentEqual_ID(student, id)) {
+				students.remove(student);
 				return true;
 			}
 		}
+//		ko oop
+//		for (int i = 0; i < students.size(); i++) {
+//			if (id.equals(students.get(i).getId())) {
+//				students.remove(i);
+//				return true;
+//			}
+//		}
 		return false;
 	}
 
@@ -102,9 +113,9 @@ public class Clazz {
 	// similar as toString method, this method prints the name, year, and all
 	// students of the class. Note that, using iterator
 	public void display() {
-		Iterator<Student> itList = students.iterator();
-		while (itList.hasNext()) {
-			System.out.println(itList.next());
+		Iterator<Student> iList = students.iterator();
+		while (iList.hasNext()) {
+			System.out.println(iList.next());
 		}
 	}
 

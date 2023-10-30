@@ -32,20 +32,23 @@ public class StudentUtils {
 
 	public static void main(String[] args) throws IOException {
 		try {
-			String filePath = "D:\\aaa\\WorkSpace_21\\TH_NLU_TH7\\src\\app\\students.txt";
-			ArrayList<Student> students = StudentUtils.loadStudents(filePath);
+			String filePath = "D:\\aaa\\WorkSpace_21\\TH_NLU_Extra-ArrayList\\src\\app\\students.txt";
+			ArrayList<Student> studentss = StudentUtils.loadStudents(filePath);
+			
+			Clazz studentClazz = new Clazz(filePath, filePath);
+			studentClazz.students.addAll(studentss);
+			
+//			test method
+//			System.out.println(studentClazz.getStudentByBirthYear(1997).toString()); // ok - non_oop
+//			studentClazz.removeStudent("18130090"); // ok oop
+//			System.out.println(studentClazz.getRandomNStudents(3).toString()); // ok - costly_Stack
+//			studentClazz.sortStudents(studentClazz.byGPA); // ok
+			System.out.println(studentClazz.getTopNStudents(3).toString()); // ok
 
-			Clazz studentClass = new Clazz("YourClassName", "YourYear");
-
-			studentClass.students.addAll(students);
-
-//			studentClass.sortStudents(studentClass.byGPA);
-			studentClass.sortStudents(studentClass.byGPA);
-			ArrayList<Student> topStudents = studentClass.getTopNStudents(5);
-
-			for (Student student : topStudents) {
-				System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName() + " " + student.getGPA());
-			}
+//			display
+//			for (Student student : studentClazz.students) {
+//				System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName() + " " + student.getGPA());
+//			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
