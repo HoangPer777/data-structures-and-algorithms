@@ -1,4 +1,5 @@
 package app;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,22 +27,28 @@ public class StudentUtils {
 			result.add(new Student(id, firstName, lastName, birthYear, GPA));
 		}
 		reader.close();
-		
 		return result;
 	}
-	public static void main(String[] args) throws IOException {
-//		loadStudents("D:/aaa/WorkSpace_21/TH_NLU/src/app/student.txt");
-		 try {
-	            // Replace "students.txt" with the actual file path to your student data file.
-	            String filePath = "D:\\aaa\\WorkSpace_21\\TH_NLU_TH7\\src\\app\\students.txt";
-	            ArrayList<Student> students = StudentUtils.loadStudents(filePath);
 
-	            // Now, you have an ArrayList of Student objects from the file.
-	            for (Student student : students) {
-	                System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName());
-	            }
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+	public static void main(String[] args) throws IOException {
+		try {
+			String filePath = "D:\\aaa\\WorkSpace_21\\TH_NLU_TH7\\src\\app\\students.txt";
+			ArrayList<Student> students = StudentUtils.loadStudents(filePath);
+
+			Clazz studentClass = new Clazz("YourClassName", "YourYear");
+
+			studentClass.students.addAll(students);
+
+//			studentClass.sortStudents(studentClass.byGPA);
+			studentClass.sortStudents(studentClass.byGPA);
+			ArrayList<Student> topStudents = studentClass.getTopNStudents(5);
+
+			for (Student student : topStudents) {
+				System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName() + " " + student.getGPA());
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

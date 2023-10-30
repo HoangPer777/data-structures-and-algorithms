@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class Clazz {
 	private String name;
 	private String year;// 2017, 2018, 2019, ...
-	private ArrayList<Student> students = new ArrayList<Student>();
+	public ArrayList<Student> students = new ArrayList<Student>();
 
 	public Clazz(String name, String year) {
 		this.name = name;
@@ -52,7 +52,8 @@ public class Clazz {
 
 	// sort students according to the given comparator c
 	public void sortStudents(Comparator<Student> c) {
-		students.sort(byID);
+		students.sort(byGPA);
+		
 
 	}
 
@@ -61,7 +62,7 @@ public class Clazz {
 		sortStudents(byGPA);
 		ArrayList<Student> topN = new ArrayList<Student>();
 		for (int i = 0; i < n; i++) {
-			topN.add(students.get(i));
+			topN.add(students.get(n - i));
 		}
 		return topN;
 	}
