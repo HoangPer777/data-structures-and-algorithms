@@ -1,13 +1,15 @@
 package Task1;
 
 public class WordCount {
-	private String word;
-	private int count;
 
+	public String word;
+	public int count;
+	
 	public WordCount(String word, int count) {
 		this.word = word;
 		this.count = count;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -20,7 +22,8 @@ public class WordCount {
 
 	@Override
 	public boolean equals(Object obj) {
-		System.out.println("called.");
+//		System.out.println("called.");
+		
 		if (obj == null || obj.getClass() != getClass())
 			return false;
 		else {
@@ -28,9 +31,10 @@ public class WordCount {
 			return this.word.equals(c.word);
 		}
 	}
+	
 
-	public int getCount() {
-		return count;
+	public void setWord(String word) {
+		this.word = word;
 	}
 
 	public void setCount(int count) {
@@ -39,6 +43,10 @@ public class WordCount {
 
 	public String getWord() {
 		return word;
+	}
+
+	public int getCount() {
+		return count;
 	}
 
 	@Override
