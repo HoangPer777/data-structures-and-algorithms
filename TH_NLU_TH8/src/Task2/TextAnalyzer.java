@@ -85,28 +85,24 @@ public class TextAnalyzer {
 
 	// This method should display the words of the text file along with the
 	// positions of each word, one word per line, in alphabetical order
+	int sizeWords = 0;
 	public void displayWords() {
 		Comparator<String> byWord = new Comparator<String>() {
-
-			@Override
 			public int compare(String o1, String o2) {
-				// TODO Auto-generated method stub
 				return o1.compareTo(o2);
 			}
 		};
 		List<String> sort = new ArrayList<String>();
-//		TreeMap<String, Integer> sort = new TreeMap<String, Integer>();
 		for (Map.Entry<String, ArrayList<Integer>> entry : map.entrySet()) {
 			if (entry.getValue().size() == 1) {
 				sort.add(entry.getKey() + "= " + entry.getValue().get(0));
-//				sort.put(entry.getKey(), entry.getValue().get(0));
 			} else {
 				for (Integer position : entry.getValue()) {
 					sort.add(entry.getKey() + "= " + position);
-//					sort.put(entry.getKey(), position);
 				}
 			}
 		}
+		sizeWords = sort.size();
 		sort.sort(byWord);
 		System.out.println(sort);
 	}
@@ -114,9 +110,8 @@ public class TextAnalyzer {
 	// This method will display the content of the text file stored in the map
 	public void displayText() {
 		List<String> result = new ArrayList<String>();
-		for (int index = 0; index < 100; index++) {
+		for (int index = 0; index < sizeWords; index++) {
 			for (Map.Entry<String, ArrayList<Integer>> entry : map.entrySet()) {
-				entry.getValue();
 				for (Integer position : entry.getValue()) {
 					if (position < 0 && (Math.abs(position) == index)) {
 						result.add(entry.getKey() + "\n");
