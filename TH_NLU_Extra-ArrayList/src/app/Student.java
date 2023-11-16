@@ -3,11 +3,6 @@ package app;
 import java.util.ArrayList;
 
 public class Student {
-	@Override
-	public String toString() {
-		return id + " " + firstName + " " + lastName + " " + birthYear + " " + GPA;
-	}
-
 	private String id;
 	private String firstName;
 	private String lastName;
@@ -20,6 +15,10 @@ public class Student {
 		this.lastName = lastName;
 		this.birthYear = birthYear;
 		this.GPA = GPA;
+	}
+	@Override
+	public String toString() {
+		return id + " " + firstName + " " + lastName + " " + birthYear + " " + GPA;
 	}
 
 	public String getId() {

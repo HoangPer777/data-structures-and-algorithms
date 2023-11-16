@@ -78,22 +78,10 @@ public class MyWordCountApp {
 	// data/hamlet.txt (or fit.txt) according to ascending order of tokens
 	// Example: An - 3, Bug - 10, ...
 	public void printWordCountsAlphabet() {
-//		Comparator<Map.Entry<String, Integer>> by_ = new Comparator<Map.Entry<String, Integer>>() {
-//			@Override
-//			public int compare(java.util.Map.Entry<String, Integer> o1, java.util.Map.Entry<String, Integer> o2) {
-//				// TODO Auto-generated method stub
-//				return 0;
-//			}
-//		};
-		
 		Map<String, Integer> mapSorted = new TreeMap<String, Integer>();
 		mapSorted.putAll(map);
-//		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-//				mapSorted.put(entry.getKey(), entry.getValue());
-//
-//		}
-		for (Map.Entry<String, Integer> entry2 : mapSorted.entrySet()) {
-			System.out.println(entry2.getKey() + " " + entry2.getValue());
+		for (Map.Entry<String, Integer> entry : mapSorted.entrySet()) {
+			System.out.println(entry.getKey() + " " + entry.getValue());
 
 		}
 	}

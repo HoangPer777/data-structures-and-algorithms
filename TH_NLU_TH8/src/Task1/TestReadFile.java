@@ -20,7 +20,7 @@ public class TestReadFile {
 		}
 
 		MyWordCountApp wordCount = new MyWordCountApp(listWord);
-//		wordCount.loadData();
+		wordCount.loadData();
 		
 //		System.out.println(wordCount.countUnique());
 //		wordCount.printWordCounts();

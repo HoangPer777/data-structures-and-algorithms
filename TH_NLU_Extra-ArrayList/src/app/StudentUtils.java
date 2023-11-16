@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 public class StudentUtils {
 	// read the content of a text file
 	public static ArrayList<Student> loadStudents(String students) throws IOException {
@@ -19,6 +17,7 @@ public class StudentUtils {
 			if (line == null)
 				break;
 			StringTokenizer tokens = new StringTokenizer(line, "\t");
+			
 			String id = tokens.nextToken();
 			String firstName = tokens.nextToken();
 			String lastName = tokens.nextToken();
@@ -43,12 +42,12 @@ public class StudentUtils {
 //			studentClazz.removeStudent("18130090"); // ok oop
 //			System.out.println(studentClazz.getRandomNStudents(3).toString()); // ok - costly_Stack
 //			studentClazz.sortStudents(studentClazz.byGPA); // ok
-			System.out.println(studentClazz.getTopNStudents(3).toString()); // ok
+//			System.out.println(studentClazz.getTopNStudents(3).toString()); // ok
 
 //			display
-//			for (Student student : studentClazz.students) {
-//				System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName() + " " + student.getGPA());
-//			}
+			for (Student student : studentClazz.students) {
+				System.out.println(student.getId() + " " + student.getFirstName() + " " + student.getLastName() + " " + student.getGPA());
+			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
