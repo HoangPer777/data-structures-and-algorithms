@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.naming.spi.DirStateFactory.Result"/>
-    <fullyQualifiedTypeName name="Student"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
-    <fullyQualifiedTypeName name="app.Clazz"/>
-    <fullyQualifiedTypeName name="app.Student"/>
-    <fullyQualifiedTypeName name="org.jcp.xml.dsig.internal.dom.Utils"/>
-    <fullyQualifiedTypeName name="Task1.MyWordCount"/>
-    <fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicTreeUI.TreeCancelEditingAction"/>
     <fullyQualifiedTypeName name="Task1.WordCount"/>
@@ -19,11 +11,9 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="Task1.MyWordCountApp"/>
     <fullyQualifiedTypeName name="java.security.KeyStore.Entry"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="Task2.TextFileUtils"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="Task1.TestReadFile"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.w3c.dom.Text"/>
     <fullyQualifiedTypeName name="Task2.TextAnalyzer"/>
     <fullyQualifiedTypeName name="javax.xml.validation.Validator"/>
@@ -60,4 +50,14 @@
     <fullyQualifiedTypeName name="Task2.ABook"/>
     <fullyQualifiedTypeName name="Task1_1.Course"/>
     <fullyQualifiedTypeName name="java.util.Objects"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Stack"/>
+    <fullyQualifiedTypeName name="Task2.MyFIFO_App"/>
+    <fullyQualifiedTypeName name="java.util.Queue"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.lang.module.ModuleDescriptor.Builder"/>
 </qualifiedTypeNameHistroy>
