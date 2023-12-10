@@ -9,8 +9,9 @@ public class Task2_1 {
 			int middle = array.length / 2;
 //			coppy các phần từ gốc vào mảng bên trái và phải
 			int[] left = Arrays.copyOfRange(array, 0, middle);
+//			System.out.println(Arrays.toString(left));
 			int[] right = Arrays.copyOfRange(array, middle , array.length);
-
+//			System.out.println(Arrays.toString(right));
 //			gọi đệ quy để làm tương tự, để chia nhỏ mảng đến khi mảng chỉ còn 1 phần tử 
 			mergeSort(left);
 			mergeSort(right);
@@ -48,11 +49,12 @@ public class Task2_1 {
 		while (j < right.length) {
 			array[k++] = right[j++];
 		}
-
+//		System.out.println(Arrays.toString(array));
 	}
 
 	public static void main(String[] args) {
-		int array[] = { 1, 6, 3, 9, 5, 7, 10, 2, 8, 4 };
+//		int array[] = { 1, 6, 3, 9, 5, 7, 10, 2, 8, 4 };
+		int array[] = { 1, 6, 3, 2, 8, 4 };
 		mergeSort(array);
 		System.out.println(Arrays.toString(array));
 	}

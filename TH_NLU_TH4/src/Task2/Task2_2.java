@@ -16,7 +16,7 @@ public class Task2_2 {
 		if (low < hight) {
 			int partitionIndex = partition(array, low, hight);
 			quickSortRecursive(array, low, partitionIndex - 1);
-			quickSortRecursive(array, partitionIndex + 1, hight);
+			quickSortRecursive(array, partitionIndex, hight);
 		}
 	}
 
@@ -26,7 +26,7 @@ public class Task2_2 {
 //		int pivot = getPivot_Last(array);
 		int pivot = array[hight];
 		int i = (low - 1); // Khởi tạo trỏ i ở ngoài mảng
-		for (int j = low; j <= hight - 1; j++) {
+		for (int j = low; j < hight; j++) {
 //			Tăng dần
 //			if (array[j] < pivot) {
 //				i++;
@@ -34,7 +34,7 @@ public class Task2_2 {
 //			}
 			if (array[j] > pivot) {
 	            i++; // tăng trỏ i để đánh dấu phần tử lớn hơn pivot
-	            swap(array, i, j); // hoán đổi i, j để đưa phần từ lớn hơn về phái bên phải
+	            swap(array, i, j); // hoán đổi i, j để đưa phần từ lớn hơn về phía bên phải
  
 	        }
 		}
@@ -85,7 +85,7 @@ public class Task2_2 {
 	// select pivot element based on choosing a randomly element in the array
 	private static int getPivot_Random(int[] array) {
 		int index = (int) (Math.random() * array.length);
-		return index;
+		return array[index];
 	}
 
 	public static void main(String[] args) {
