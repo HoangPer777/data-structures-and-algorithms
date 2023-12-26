@@ -47,6 +47,5 @@ public class TestCompOrder {
         System.out.println("Contains pizza: " + order.contains(new Product("006", "Pizza", 12.0, "Food")));
         Product[] drinks = order.filter("Drink");
         System.out.println("Drink products: " + Arrays.toString(drinks));
-
 	}
 }

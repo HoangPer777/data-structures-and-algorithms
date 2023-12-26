@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Order {
-	String id;
-	String customer;
-	String employee;
-	Date date;
-	List<OrderItem> orders = new ArrayList<>();
+	private String id;
+	private String customer;
+	private String employee;
+	private Date date;
+	private List<OrderItem> orders = new ArrayList<>();
 	
 	@Override
 	public String toString() {
@@ -38,7 +38,7 @@ public class Order {
 		for (OrderItem item : orders) {
 			if (max < item.maxPrice()) {
 				max = item.maxPrice();
-				maxProduct = item.item;
+				maxProduct = item.getItem();
 			}
 
 		}
@@ -57,9 +57,9 @@ public class Order {
 		HashMap<String , Integer> result = new HashMap<String, Integer>();
 		for (OrderItem orderItem : orders) {
 			if(!result.containsKey(orderItem.getType())) {
-				result.put(orderItem.getType(), orderItem.amount);
+				result.put(orderItem.getType(), orderItem.getAmount());
 			}else {
-				result.put(orderItem.getType(), orderItem.amount + result.get(orderItem.getType()));
+				result.put(orderItem.getType(), orderItem.getAmount() + result.get(orderItem.getType()));
 			}
 			
 		}

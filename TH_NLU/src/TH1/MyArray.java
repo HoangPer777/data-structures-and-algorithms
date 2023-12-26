@@ -23,7 +23,6 @@ public class MyArray {
 						int temp = result[h];
 						result[h] = result[h + 1];
 						result[h + 1] = temp;
-						
 					}
 					result = Arrays.copyOf(result, result.length - 1);
 				}
@@ -36,7 +35,7 @@ public class MyArray {
 
 	public static void main(String[] args) {
 		int array[] = { 1, 2, 3 };
-//		System.out.println(Arrays.toString(mirror(array)));
+		System.out.println(Arrays.toString(mirror(array)));
 
 		int array2[] = { 1, 3, 5, 1, 3, 7, 9, 8 };
 		System.out.println(Arrays.toString(removeDuplicates(array2)));

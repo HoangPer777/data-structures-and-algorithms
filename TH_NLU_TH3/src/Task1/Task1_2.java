@@ -56,8 +56,8 @@ public class Task1_2 {
 		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 		Task1_2 task = new Task1_2(array);
 
-//		int result = task.iterativeBinarySearch(10);
-//		System.out.println(result);
+		int result = task.iterativeBinarySearch(10);
+		System.out.println(result);
 
 		int result2 = task.recursiveBinarySearch(2);
 		System.out.println(result2);

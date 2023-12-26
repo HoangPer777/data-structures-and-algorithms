@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeSet;
 
 public class OrderManger {
-	List<Order> orders = new ArrayList<>();
+	private List<Order> orders = new ArrayList<>();
 
 	public OrderManger(List<Order> orders) {
 		super();
@@ -27,10 +27,10 @@ public class OrderManger {
 		return null;
 	}
 
-	public Product maxProduct2() {
-		Comparator<Product> comp = Comparator.comparing(Product::getPrice);
- 		return this.orders.stream().flatMap(x -> x.getOrders().stream()).map(x -> x.getItem()).max(comp).get();
-	}
+//	public Product maxProduct2() {
+//		Comparator<Product> comp = Comparator.comparing(Product::getPrice);
+// 		return this.orders.stream().flatMap(x -> x.getOrders().stream()).map(x -> x.getItem()).max(comp).get();
+//	}
 
 //	trả về loại sản phẩm và số lượng bán ra cho mỗi loại
 	public HashMap<String, Integer> productTypesStatistics() {
@@ -49,7 +49,7 @@ public class OrderManger {
 				if (o1.totalPrice() == o2.totalPrice()) {
 					return o1.totalPrice() - o2.totalPrice();
 				} else {
-					return o1.date.compareTo(o2.date);
+					return o1.getDate().compareTo(o2.getDate());
 				}
 
 			}

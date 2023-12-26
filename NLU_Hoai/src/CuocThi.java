@@ -1,0 +1,419 @@
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class CuocThi {
+	ArrayList<ChiDep> dsChiDep;
+	ArrayList<VongThi> dsVongThi;
+	String tenCuocThi;
+	int namToChuc;
+
+	public CuocThi(String tenCuocThi, int namToChuc) {
+		this.dsChiDep = new ArrayList<ChiDep>();
+		this.dsVongThi = new ArrayList<VongThi>();
+		this.tenCuocThi = tenCuocThi;
+		this.namToChuc = namToChuc;
+	}
+
+	public ArrayList<ChiDep> getDsChiDep() {
+		return dsChiDep;
+	}
+
+	public void setDsChiDep(ArrayList<ChiDep> dsChiDep) {
+		this.dsChiDep = dsChiDep;
+	}
+
+	public ArrayList<VongThi> getDsVongThi() {
+		return dsVongThi;
+	}
+
+	public void setDsVongThi(ArrayList<VongThi> dsVongThi) {
+		this.dsVongThi = dsVongThi;
+	}
+
+	public String getTenCuocThi() {
+		return tenCuocThi;
+	}
+
+	public void setTenCuocThi(String tenCuocThi) {
+		this.tenCuocThi = tenCuocThi;
+	}
+
+	public int getNamToChuc() {
+		return namToChuc;
+	}
+
+	public void setNamToChuc(int namToChuc) {
+		this.namToChuc = namToChuc;
+	}
+
+	// method thêm Chi đẹp
+	public void themChiDep(ChiDep chi) {
+		this.dsChiDep.add(chi);
+	}
+
+	// method thêm vòng thi
+	public void themVongThi(VongThi vong) {
+		this.dsVongThi.add(vong);
+	}
+
+//	thongKeChiDep_danhSachDiemSo() trả về HashMap<ChiDep,
+//	LinkedList<Integer>> cho biết chị đẹp và điểm qua các vòng thi,
+//	vòng thi sau thì điểm phía sau.
+	public HashMap<ChiDep, List<Integer>> thongKeChiDep_danhSachDiemSo() {
+		HashMap<ChiDep, List<Integer>> result = new HashMap<ChiDep, List<Integer>>();
+		for (VongThi vong : this.dsVongThi) {
+			for (NhomTrinhDien nhom : vong.getDsNhomTrinhDiem()) {
+				HashMap<ChiDep, Integer> thongKe = nhom.getDiemTVNhom(vong.getCachTinhDiemChiDep());
+				for (Map.Entry<ChiDep, Integer> e : thongKe.entrySet()) {
+					if (!result.containsKey(e.getKey())) {
+						List<Integer> value = new ArrayList<Integer>();
+						value.add(e.getValue());
+						result.put(e.getKey(), value);
+					} else {
+
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	// method thống kê chị đẹp bị loại theo vòng
+	public HashMap<VongThi, Integer> thongKeChiDepBiLoai() {
+		HashMap<VongThi, Integer> result = new HashMap<VongThi, Integer>();
+		for (VongThi vongThi : dsVongThi) {
+			for (NhomTrinhDien nhom : vongThi.getDsNhomTrinhDiem()) {
+				for (ChiDep chiDep : nhom.getDsThanhVien()) {
+					if (chiDep.getBiLoai() && chiDep.getTenVongBiLoai().equals(vongThi.getTenVong())) {
+						if (!result.containsKey(vongThi)) {
+							result.put(vongThi, 1);
+						} else {
+							int value = result.get(vongThi);
+							result.put(vongThi, value + 1);
+						}
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+//	getSetChiDepVongThi(VongThi v) cho ra TreeSet chị đẹp theo giảm
+//	dần điểm của vòng thi của các chị đep trong chương trình.
+	public TreeSet<ChiDep> getSetChiDepVongThi(VongThi v) {
+		if (v == null) {
+			throw new IllegalArgumentException("VongThi cannot be null");
+		}
+		TreeSet<ChiDep> result = new TreeSet<ChiDep>((o1, o2) -> o1.getTongDiemQuaTrinh() - o2.getTongDiemQuaTrinh());
+		for (VongThi vong : this.dsVongThi) {
+			if (vong.equals(v)) {
+				for (NhomTrinhDien nhom : vong.getDsNhomTrinhDiem()) {
+					for (ChiDep chiDep : nhom.getDsThanhVien()) {
+						result.add(chiDep);
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	// method loại chị đẹp
+	public List<ChiDep> loaiChiDep(VongThi v, int solg) {
+		List<ChiDep> result = new ArrayList<>();
+
+		for (VongThi vong : this.dsVongThi) {
+			if (vong.equals(v)) {
+				for (NhomTrinhDien nhom : vong.getDsNhomTrinhDiem()) {
+					HashMap<ChiDep, Integer> layChiDepVaDiemTheoVong = vong.getDiemTVNhom(nhom);
+					List<Map.Entry<ChiDep, Integer>> danhSachCacDiemCuaCacChiDep = new ArrayList<>( layChiDepVaDiemTheoVong.entrySet());
+					danhSachCacDiemCuaCacChiDep.sort(new Comparator<Map.Entry<ChiDep, Integer>>() {
+						public int compare(java.util.Map.Entry<ChiDep, Integer> o1,
+								java.util.Map.Entry<ChiDep, Integer> o2) {
+							Integer diem1 = o1.getValue();
+							Integer diem2 = o2.getValue();
+							if (diem1 == null && diem2 == null) {
+								return 0;
+							}
+							if (diem1 == null) {
+								return 1;
+							}
+							if (diem2 == null) {
+								return -1;
+							}
+							return diem1.compareTo(diem2);
+						}
+					});
+					int size = danhSachCacDiemCuaCacChiDep.size();
+					int loaiDiem = Math.min(solg, size);
+
+					for (int i = 0; i < loaiDiem; i++) {
+						Map.Entry<ChiDep, Integer> current = danhSachCacDiemCuaCacChiDep.get(i);
+						result.add(current.getKey());
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+//	getSetTongDiemChiDep() cho ra TreeSet chị đẹp theo giảm dần tổng
+//	điểm của quá trình thi của các chị đep trong chương trình.
+	public TreeSet<ChiDep> getSetTongDiemChiDep() {
+		TreeSet<ChiDep> result = new TreeSet<ChiDep>(new Comparator<ChiDep>() {
+
+			@Override
+			public int compare(ChiDep o1, ChiDep o2) {
+				if (o1.getTongDiemQuaTrinh() > o2.getTongDiemQuaTrinh()) {
+					return -1;
+				}
+				if (o1.getTongDiemQuaTrinh() < o2.getTongDiemQuaTrinh()) {
+					return 1;
+				}
+				return 0;
+			}
+		});
+		for (VongThi vongThi : this.dsVongThi) {
+			for (NhomTrinhDien nhom : vongThi.getDsNhomTrinhDiem()) {
+				for (ChiDep chiDep : nhom.getDsThanhVien()) {
+					result.add(chiDep);
+				}
+			}
+		}
+
+		return result;
+
+	}
+
+	public static void main(String[] args) {
+		QuaTrinhLamNghe caSi1 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2000);
+		QuaTrinhLamNghe caSi2 = new QuaTrinhLamNghe("CS", "Ca sĩ", 1999);
+		QuaTrinhLamNghe caSi3 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2012);
+		QuaTrinhLamNghe caSi4 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2003);
+		QuaTrinhLamNghe caSi5 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2004);
+		QuaTrinhLamNghe caSi6 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2010);
+		QuaTrinhLamNghe caSi7 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2005);
+		QuaTrinhLamNghe caSi8 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2008);
+		QuaTrinhLamNghe caSi9 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2015);
+		QuaTrinhLamNghe caSi10 = new QuaTrinhLamNghe("CS", "Ca sĩ", 2002);
+
+		QuaTrinhLamNghe mC1 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 1999);
+		QuaTrinhLamNghe mC2 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2002);
+		QuaTrinhLamNghe mC3 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2001);
+		QuaTrinhLamNghe mC4 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2010);
+		QuaTrinhLamNghe mC5 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2000);
+		QuaTrinhLamNghe mC6 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2005);
+		QuaTrinhLamNghe mC7 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2008);
+		QuaTrinhLamNghe mC8 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2012);
+		QuaTrinhLamNghe mC9 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2014);
+		QuaTrinhLamNghe mC10 = new QuaTrinhLamNghe("MC", "Dẫn chương trình", 2003);
+
+		QuaTrinhLamNghe mua1 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 1998);
+		QuaTrinhLamNghe mua2 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2005);
+		QuaTrinhLamNghe mua3 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2002);
+		QuaTrinhLamNghe mua4 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2012);
+		QuaTrinhLamNghe mua5 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2001);
+		QuaTrinhLamNghe mua6 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2010);
+		QuaTrinhLamNghe mua7 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2007);
+		QuaTrinhLamNghe mua8 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2015);
+		QuaTrinhLamNghe mua9 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2013);
+		QuaTrinhLamNghe mua10 = new QuaTrinhLamNghe("MUA", "Nghệ sĩ múa", 2004);
+
+		QuaTrinhLamNghe lapTrinhVien1 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2005);
+		QuaTrinhLamNghe lapTrinhVien2 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2010);
+		QuaTrinhLamNghe lapTrinhVien3 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2008);
+		QuaTrinhLamNghe lapTrinhVien4 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2015);
+		QuaTrinhLamNghe lapTrinhVien5 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2007);
+		QuaTrinhLamNghe lapTrinhVien6 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2012);
+		QuaTrinhLamNghe lapTrinhVien7 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2014);
+		QuaTrinhLamNghe lapTrinhVien8 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2009);
+		QuaTrinhLamNghe lapTrinhVien9 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2013);
+		QuaTrinhLamNghe lapTrinhVien10 = new QuaTrinhLamNghe("LT", "Lập trình viên", 2006);
+
+		// ChiDep1
+		ChiDep hoai = new ChiDep("22130084", "Huỳnh Linh Hoài");
+		hoai.themNgheNghiep(caSi1);
+		hoai.themNgheNghiep(mC1);
+		hoai.themNgheNghiep(mua1);
+		hoai.themNgheNghiep(lapTrinhVien1);
+		hoai.themDiemQT(80);
+		hoai.themDiemQT(95);
+		hoai.themDiemQT(75);
+		hoai.themDiemQT(88);
+		hoai.themDiemQT(92);
+
+		// ChiDep2
+		ChiDep diem = new ChiDep("22150178", "Quách Phương Kiều Diễm");
+		diem.themDiemQT(99);
+		diem.themDiemQT(88);
+		diem.themDiemQT(92);
+		diem.themDiemQT(95);
+		diem.themDiemQT(91);
+		diem.themNgheNghiep(caSi2);
+		diem.themNgheNghiep(mC2);
+		diem.themNgheNghiep(mua2);
+		diem.themNgheNghiep(lapTrinhVien2);
+
+		// ChiDep3
+		ChiDep hoang = new ChiDep("22130086", "Nguyễn Văn Hoàng");
+		hoang.themDiemQT(94);
+		hoang.themDiemQT(89);
+		hoang.themDiemQT(96);
+		hoang.themDiemQT(91);
+		hoang.themDiemQT(98);
+		hoang.themNgheNghiep(caSi3);
+		hoang.themNgheNghiep(mC3);
+		hoang.themNgheNghiep(mua3);
+		hoang.themNgheNghiep(lapTrinhVien3);
+
+		// ChiDep4
+		ChiDep tam = new ChiDep("22130273", "Đào Khánh Tâm");
+		tam.themDiemQT(87);
+		tam.themDiemQT(92);
+		tam.themDiemQT(85);
+		tam.themDiemQT(89);
+		tam.themDiemQT(91);
+		tam.themNgheNghiep(caSi4);
+		tam.themNgheNghiep(mC4);
+		tam.themNgheNghiep(mua4);
+		tam.themNgheNghiep(lapTrinhVien4);
+
+		// ChiDep5
+		ChiDep dat = new ChiDep("22130008", "Trần Tấn Đạt");
+		dat.themDiemQT(90);
+		dat.themDiemQT(85);
+		dat.themDiemQT(88);
+		dat.themDiemQT(92);
+		dat.themDiemQT(89);
+		dat.themNgheNghiep(caSi5);
+		dat.themNgheNghiep(mC5);
+		dat.themNgheNghiep(mua5);
+		dat.themNgheNghiep(lapTrinhVien5);
+
+		// ChiDep6
+		ChiDep thanhDat = new ChiDep("22130019", "Nguyễn Thành Đạt");
+		thanhDat.themDiemQT(85);
+		thanhDat.themDiemQT(89);
+		thanhDat.themDiemQT(92);
+		thanhDat.themDiemQT(87);
+		thanhDat.themDiemQT(90);
+		thanhDat.themNgheNghiep(caSi6);
+		thanhDat.themNgheNghiep(mC6);
+		thanhDat.themNgheNghiep(mua6);
+		thanhDat.themNgheNghiep(lapTrinhVien6);
+
+		// ChiDep7
+		ChiDep trungHieu = new ChiDep("22130043", "Trần Trung Hiếu");
+		trungHieu.themDiemQT(88);
+		trungHieu.themDiemQT(91);
+		trungHieu.themDiemQT(86);
+		trungHieu.themDiemQT(93);
+		trungHieu.themDiemQT(89);
+		trungHieu.themNgheNghiep(caSi7);
+		trungHieu.themNgheNghiep(mC7);
+		trungHieu.themNgheNghiep(mua7);
+		trungHieu.themNgheNghiep(lapTrinhVien7);
+
+		// ChiDep8
+		ChiDep huuNam = new ChiDep("22130099", "Nguyễn Hữu Nam");
+		huuNam.themDiemQT(90);
+		huuNam.themDiemQT(88);
+		huuNam.themDiemQT(94);
+		huuNam.themDiemQT(89);
+		huuNam.themDiemQT(92);
+		huuNam.themNgheNghiep(caSi8);
+		huuNam.themNgheNghiep(mC8);
+		huuNam.themNgheNghiep(mua8);
+		huuNam.themNgheNghiep(lapTrinhVien8);
+
+		// ChiDep9
+		ChiDep duyenNhu = new ChiDep("22130889", "Huỳnh Thị Duyên Như");
+		duyenNhu.themDiemQT(85);
+		duyenNhu.themDiemQT(88);
+		duyenNhu.themDiemQT(92);
+		duyenNhu.themDiemQT(86);
+		duyenNhu.themDiemQT(89);
+		duyenNhu.themNgheNghiep(caSi9);
+		duyenNhu.themNgheNghiep(mC9);
+		duyenNhu.themNgheNghiep(mua9);
+		duyenNhu.themNgheNghiep(lapTrinhVien9);
+
+		// ChiDep10
+		ChiDep ngocSari = new ChiDep("22130077", "Huỳnh Ngọc Sa Ri");
+		ngocSari.themDiemQT(87);
+		ngocSari.themDiemQT(90);
+		ngocSari.themDiemQT(92);
+		ngocSari.themDiemQT(88);
+		ngocSari.themDiemQT(91);
+		ngocSari.themNgheNghiep(caSi10);
+		ngocSari.themNgheNghiep(mC10);
+		ngocSari.themNgheNghiep(mua10);
+		ngocSari.themNgheNghiep(lapTrinhVien10);
+
+		NhomTrinhDien nhom1 = new NhomTrinhDien("Trình diễn", "ID07-2019", hoai);
+		nhom1.themThanhVien(diem);
+		nhom1.themThanhVien(hoang);
+		nhom1.setBienDao("Huỳnh Linh Hoài");
+		nhom1.setDiemNhom(90);
+		nhom1.setTrangThaiNhom("Quá đỉnh em ơi");
+		nhom1.setPhieuBau(hoai, 1000);
+		nhom1.setPhieuBau(diem, 1000);
+		nhom1.setPhieuBau(hoang, 1000);
+
+		NhomTrinhDien nhom2 = new NhomTrinhDien("Múa", "Về thăm lăng Bác", dat);
+		nhom2.themThanhVien(tam);
+		nhom2.themThanhVien(thanhDat);
+		nhom2.setBienDao("Trần Tấn Đạt");
+		nhom2.setDiemNhom(80);
+		nhom2.setTrangThaiNhom("Quá ổn em ơi");
+		nhom2.setPhieuBau(dat, 900);
+		nhom2.setPhieuBau(tam, 900);
+		nhom2.setPhieuBau(thanhDat, 900);
+
+		NhomTrinhDien nhom3 = new NhomTrinhDien("Nhảy", "Bóng bóng bang bang", trungHieu);
+		nhom3.themThanhVien(duyenNhu);
+		nhom3.themThanhVien(ngocSari);
+		nhom3.themThanhVien(huuNam);
+		nhom3.setBienDao("Trần Trung Hiếu");
+		nhom3.setDiemNhom(70);
+		nhom3.setTrangThaiNhom("Quá dữ em ơi");
+		nhom3.setPhieuBau(trungHieu, 800);
+		nhom3.setPhieuBau(duyenNhu, 800);
+		nhom3.setPhieuBau(ngocSari, 800);
+		nhom3.setPhieuBau(ngocSari, 800);
+
+		VongThi vongThi1 = new VongThi("01", "Vong 1", new CachTinhDiem(0.5, 0.5));
+		vongThi1.themNhomTrinhDien(nhom1);
+		vongThi1.themNhomTrinhDien(nhom2);
+		vongThi1.themNhomTrinhDien(nhom3);
+
+		VongThi vongThi2 = new VongThi("02", "Vong 2", new CachTinhDiem(0.6, 0.4));
+		vongThi2.themNhomTrinhDien(nhom1);
+		vongThi2.themNhomTrinhDien(nhom2);
+
+		vongThi2.themNhomTrinhDien(nhom3);
+
+		VongThi vongThi3 = new VongThi("03", "Vong 3", new CachTinhDiem(0.7, 0.3));
+		vongThi3.themNhomTrinhDien(nhom1);
+		vongThi3.themNhomTrinhDien(nhom2);
+		vongThi3.themNhomTrinhDien(nhom3);
+
+		CuocThi cuocThi = new CuocThi("Cuộc thi", 2023);
+		cuocThi.themVongThi(vongThi1);
+		cuocThi.themVongThi(vongThi2);
+		cuocThi.themVongThi(vongThi3);
+
+		// test getSet chị đẹp theo vong thi
+//		System.out.println("Danh sách chị đẹp trong vòng thi số 1 là: "+cuocThi.getSetChiDepVongThi(vongThi1));
+		// test get tổng điểm chị đẹp
+//		System.out.println("Danh sách tổng điểm chị đẹp "+cuocThi.getSetChiDepVongThi(vongThi1));
+//		System.out.println("Danh sách chị đẹp giảm dần điểm "+cuocThi.getSetTongDiemChiDep());
+//		System.out.println("Danh sách các người bị loại "+cuocThi.loaiChiDep(vongThi1, 3));
+//		System.out.println("Sắp xếp nhóm theo điểm số tăng dần "+vongThi1.sortNhomDiemSo());
+	}
+
+}

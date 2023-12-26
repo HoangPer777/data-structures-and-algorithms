@@ -11,7 +11,7 @@ public class Task2_3 {
 					System.out.print(" "); // In khoảng trắng để tạo hình tam giác
 				}
 				for (int k = 0; k < (i + 1) * 2 - 1; k++) {
-					System.out.print("x");
+					System.out.print("*");
 				}
 
 				System.out.println();

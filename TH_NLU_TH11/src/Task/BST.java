@@ -341,7 +341,7 @@ public class BST<E extends Comparable<E>> {
 //
 //		System.out.println("hight: " + binarySearchTree.height());
 //
-//		System.out.println("size: " + binarySearchTree.size());
+		System.out.println("size: " + binarySearchTree.size());
 //
 //		System.out.println("contain: " + binarySearchTree.contains(11));
 //		System.out.println("contain: " + binarySearchTree.contains(6));
@@ -355,8 +355,8 @@ public class BST<E extends Comparable<E>> {
 //		System.out.println(binarySearchTree.descendants(4));
 //		System.out.println(binarySearchTree.descendants(6));
 
-//		System.out.println(binarySearchTree.ancestors(5));
-//		System.out.println(binarySearchTree.ancestors(99));
+		System.out.println(binarySearchTree.ancestors(5));
+		System.out.println(binarySearchTree.ancestors(99));
 
 //		binarySearchTree.inorder();
 //		binarySearchTree.preorder();

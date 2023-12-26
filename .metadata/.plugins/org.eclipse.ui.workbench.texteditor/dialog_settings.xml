@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ch"/>
+		<item key="selection" value="dat"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="dat"/>
+			<item value="setPhieuBau"/>
+			<item value="ChiDep"/>
+			<item value="ChiDep hoai = new ChiDep(&quot;22130084&quot;, &quot;Huỳnh Linh Hoài&quot;);"/>
+			<item value="setCachTinhDiem"/>
+			<item value="setThanhVien"/>
+			<item value="getDiemTVNhom"/>
+			<item value="e"/>
+			<item value="chỉ mục"/>
 			<item value="match"/>
 			<item value="v"/>
 			<item value="input"/>
 			<item value="left"/>
 			<item value="WordCount"/>
 			<item value="index"/>
-			<item value="wordCounts"/>
-			<item value="sort"/>
-			<item value="sort()"/>
-			<item value="add()"/>
-			<item value="add"/>
-			<item value="first()"/>
-			<item value="first"/>
-			<item value="isEmpty"/>
-			<item value="isEmpty()"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Chi_Dep"/>
+			<item value="nhom"/>
+			<item value="index"/>
 			<item value="ch"/>
 			<item value="char"/>
 			<item value="input"/>
@@ -37,13 +40,11 @@
 			<item value="start"/>
 			<item value="end"/>
 			<item value="average"/>
-			<item value="arrayNum"/>
-			<item value="arrNum"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="1260"/>
-		<item key="DIALOG_Y_ORIGIN" value="479"/>
+		<item key="DIALOG_Y_ORIGIN" value="470"/>
 		<item key="DIALOG_WIDTH" value="552"/>
 		<item key="DIALOG_HEIGHT" value="550"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|12.0|0|WINDOWS|1|-20|0|0|0|400|0|0|0|0|3|2|1|34|Segoe UI"/>

@@ -36,20 +36,22 @@ public class Clazz {
 			return o1.getLastName().compareTo(o2.getLastName());
 		}
 	};
-	Comparator<Student> byID = new Comparator<Student>() {
-		@Override
-		public int compare(Student o1, Student o2) {
-			// TODO Auto-generated method stub
-			return o1.getId().compareTo(o2.getId());
-		}
-	};
+//	Comparator<Student> byID = new Comparator<Student>() {
+//		@Override
+//		public int compare(Student o1, Student o2) {
+//			// TODO Auto-generated method stub
+//			return o1.getId().compareTo(o2.getId());
+//		}
+//	};
+	Comparator<Student> byID = (o1, o2) -> o1.getId().compareTo(o2.getId());
+
 	Comparator<Student> byBirthYear = new Comparator<Student>() {
 		@Override
 		public int compare(Student o1, Student o2) {
 			return o1.getBirthYear() - o2.getBirthYear();
 		}
 	};
-
+	
 	// sort students according to the given comparator c
 	public void sortStudents(Comparator<Student> c ) {
 //		students.sort(byGPA);

@@ -36,10 +36,14 @@ public class Library {
 		}
 		return oldestBook;
 	}
-
+public Map<String, Integer> thongke (){
+	return null;
+	
+}
 //	để thống kê các quyển sách theo năm, với key là năm xuất bản và 
 //	value là các quyển sách xuất bản trong năm đó.
 	public Map<Integer, List<Book>> getBooksByYears() {
+		
 		Map<Integer, List<Book>> result = new HashMap<Integer, List<Book>>();
 		for (Book book : books) {
 			if (!result.containsKey(book.getYear())) {
@@ -77,5 +81,14 @@ public class Library {
 	
 	public boolean similarAuthor(Book book,String authorName ) {
 		return book.similarAuthor(book, authorName);
+	}
+	public static void main(String[] args) {
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.remove(2);
+		System.out.println(list);
+		
 	}
 }

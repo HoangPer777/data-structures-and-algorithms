@@ -3,10 +3,10 @@ package Task1;
 import java.util.Date;
 
 public class Product {
-	String name;
-	String type;
-	int price;
-	Date expiredDate;
+	private String name;
+	private String type;
+	private int price;
+	private Date expiredDate;
 
 	public Product(String name, String type,int price, Date expiredDate) {
 		super();

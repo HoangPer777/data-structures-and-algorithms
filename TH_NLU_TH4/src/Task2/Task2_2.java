@@ -16,7 +16,7 @@ public class Task2_2 {
 		if (low < hight) {
 			int partitionIndex = partition(array, low, hight);
 			quickSortRecursive(array, low, partitionIndex - 1);
-			quickSortRecursive(array, partitionIndex, hight);
+			quickSortRecursive(array, partitionIndex + 1, hight);
 		}
 	}
 

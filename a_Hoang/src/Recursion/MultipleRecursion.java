@@ -21,9 +21,28 @@ public class MultipleRecursion {
 	        }
 	    }
 
+	    public static int mystery(int a, int b) {
+	    	if(b == 1) {
+	    		return a;
+	    	}else {
+	    		return a + mystery(a, b - 1);
+	    	}
+	    }
+	    public static int recur(int n) {
+	    	if(n <= 10) {
+	    		return n *2;
+	    	}else {
+	    		return recur(n/3);
+	    	}
+	    }
+	    
 	    public static void main(String[] args) {
 	        int result = multipleRecursion(12);
 	        System.out.println("Result: " + result);
+	        
+	        System.out.println(mystery(2, 3));
+	        
+	        System.out.println(recur(27));
 	    }
 
 }

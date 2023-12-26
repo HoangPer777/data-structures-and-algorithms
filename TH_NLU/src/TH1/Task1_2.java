@@ -13,7 +13,6 @@ public class Task1_2 {
 
 	// Input: 10 11 12 13 14 16 17 19 20
 	// Output: 15 18
-
 	public int[] getMissingValues() {
 		int indexResult = 0;
 		int[] result = new int[arrayNum[arrayNum.length - 1] - arrayNum[0] - arrayNum.length + 1];

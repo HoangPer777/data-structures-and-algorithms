@@ -3,6 +3,7 @@ package Task1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.ListIterator;
 
 import javax.lang.model.element.Element;
@@ -205,7 +206,8 @@ public class MyArrayList<E> {
 //		System.out.println(list.get(5));
 
 //		test set(int i, E e)
-		list.set(3, 5);
+		list.set(3, -1);
+		System.out.println("set: ");
 		for (int i = 0; i < list.size; i++) {
 			System.out.print(list.get(i) + ", ");
 		}

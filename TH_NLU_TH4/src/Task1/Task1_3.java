@@ -7,7 +7,7 @@ public class Task1_3 {
 		for (int i = 1; i < array.length; i++) {
 			int current = array[i];
 			int key = i;
-			while (key > 0 && array[key - 1] < current) {
+			while (key > 0 && array[key - 1] > current) {
 				array[key] = array[key - 1];
 				key--;
 			}
@@ -43,7 +43,8 @@ public class Task1_3 {
 	}
 
 	public static void main(String[] args) {
-		int array[] = { 1, 6, 3, 9, 5, 3, 6, 2, 8, 0, 7, 4 };
+//		int array[] = { 1, 6, 3, 9, 5, 3, 6, 2, 8, 0, 7, 4 };
+		int array[] = { 4, 2, 10, 9, 45, 9 };
 		insertionSort(array);
 		System.out.println(Arrays.toString(array));
 	}

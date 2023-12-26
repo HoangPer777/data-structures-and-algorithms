@@ -54,7 +54,7 @@ public class Task2_1 {
 
 	public static void main(String[] args) {
 //		int array[] = { 1, 6, 3, 9, 5, 7, 10, 2, 8, 4 };
-		int array[] = { 1, 6, 3, 2, 8, 4 };
+		int array[] = { 1, 6, 3, 2, 8, 4, 7};
 		mergeSort(array);
 		System.out.println(Arrays.toString(array));
 	}

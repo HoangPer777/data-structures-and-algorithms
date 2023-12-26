@@ -1,8 +1,8 @@
 package Task1;
 
 public class OrderItem {
-	Product item;
-	int amount;
+	private Product item;
+	private int amount;
 	
 	public OrderItem(Product item, int amount) {
 		super();
@@ -33,8 +33,23 @@ public class OrderItem {
 	}
 
 
+	public int getAmount() {
+		return amount;
+	}
+
+
+	public void setItem(Product item) {
+		this.item = item;
+	}
+
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+
 	public int getPrice() {
 		// TODO Auto-generated method stub
-		return item.price;
+		return item.getPrice();
 	}
 }
