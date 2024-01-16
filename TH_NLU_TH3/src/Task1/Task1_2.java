@@ -1,5 +1,7 @@
 package Task1;
 
+import java.util.HashSet;
+
 public class Task1_2 {
 	private int[] array;
 
@@ -61,5 +63,7 @@ public class Task1_2 {
 
 		int result2 = task.recursiveBinarySearch(2);
 		System.out.println(result2);
+		
+	
 	}
 }
