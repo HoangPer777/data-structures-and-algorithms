@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="dat"/>
+		<item key="selection" value="get"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="get"/>
+			<item value="2"/>
+			<item value="1"/>
 			<item value="dat"/>
 			<item value="setPhieuBau"/>
 			<item value="ChiDep"/>
@@ -20,11 +23,10 @@
 			<item value="match"/>
 			<item value="v"/>
 			<item value="input"/>
-			<item value="left"/>
-			<item value="WordCount"/>
-			<item value="index"/>
 		</list>
 		<list key="replacehistory">
+			<item value="3"/>
+			<item value="2"/>
 			<item value="Chi_Dep"/>
 			<item value="nhom"/>
 			<item value="index"/>
@@ -38,8 +40,6 @@
 			<item value="value"/>
 			<item value="array"/>
 			<item value="start"/>
-			<item value="end"/>
-			<item value="average"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -56,24 +56,42 @@ public class DotUngTuyen {
 		return this.dsViecLam.stream().flatMap(x -> x.getDsUngCuVien().stream()).max(comp).get();
 	}
 
-	// Cau 2. Thong ke ung cu vien theo diem so >= 5 va duoi 5 -- ko oop
+//	// Cau 2. Thong ke ung cu vien theo diem so >= 5 va duoi 5 -- ko oop
+//	public Map<Boolean, List<UngCuVien>> thongKeUngCuVienTheoDiemSo() {
+//		Map<Boolean, List<UngCuVien>> result = new HashMap<Boolean, List<UngCuVien>>();
+//		List<UngCuVien> tren5 = new ArrayList<UngCuVien>();
+//		List<UngCuVien> duoi5 = new ArrayList<UngCuVien>();
+//		for (ViTriViecLam viTriViecLam : dsViecLam) {
+//			for (UngCuVien ungCuVien : viTriViecLam.getDsUngCuVien()) {
+//				if (ungCuVien.getDiemSo() >= 5) {
+//					tren5.add(ungCuVien);
+//				} else {
+//					duoi5.add(ungCuVien);
+//				}
+//			}
+//		}
+//		result.put(true, tren5);
+//		result.put(false, duoi5);
+//		return result;
+//	}
+	
+	// Cau 2. Thong ke ung cu vien theo diem so >= 5 va duoi 5 
 	public Map<Boolean, List<UngCuVien>> thongKeUngCuVienTheoDiemSo() {
-		Map<Boolean, List<UngCuVien>> result = new HashMap<Boolean, List<UngCuVien>>();
-		List<UngCuVien> tren5 = new ArrayList<UngCuVien>();
-		List<UngCuVien> duoi5 = new ArrayList<UngCuVien>();
-		for (ViTriViecLam viTriViecLam : dsViecLam) {
-			for (UngCuVien ungCuVien : viTriViecLam.getDsUngCuVien()) {
-				if (ungCuVien.getDiemSo() >= 5) {
-					tren5.add(ungCuVien);
-				} else {
-					duoi5.add(ungCuVien);
+			Map<Boolean, List<UngCuVien>> result = new HashMap<Boolean, List<UngCuVien>>();
+			for(ViTriViecLam vitri : dsViecLam) {
+				for(UngCuVien ungCuVien : vitri.getDsUngCuVien()) {
+					if(result.containsKey(ungCuVien.check())) {
+						result.get(ungCuVien.check()).add(ungCuVien);
+					}else {
+						result.put(ungCuVien.check(), new ArrayList<UngCuVien>());
+						result.get(ungCuVien.check()).add(ungCuVien);
+					}
+					
 				}
 			}
+			return result;
 		}
-		result.put(true, tren5);
-		result.put(false, duoi5);
-		return result;
-	}
+		
 //	// Cau 2. Thong ke ung cu vien theo diem so
 //	public Map<Boolean, List<UngCuVien>> thongKeUngCuVienTheoDiemSo() { 
 //		return dsViecLam.stream().flatMap(x -> x.getDsUngCuVien().stream()) .collect(Collectors.groupingBy(x -> x.getDiemSo() >= 5.0));

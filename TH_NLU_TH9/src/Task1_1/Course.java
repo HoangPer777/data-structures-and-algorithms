@@ -92,6 +92,7 @@ public class Course {
         return Objects.hash(id, title, type, listStudent, lecturer);
         // Tính toán giá trị hash dựa trên các trường dữ liệu quan trọng
     }
+    
 	
 
 }

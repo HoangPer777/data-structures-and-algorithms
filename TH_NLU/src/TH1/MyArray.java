@@ -1,4 +1,4 @@
-package TH1;
+ package TH1;
 
 import java.util.Arrays;
 
@@ -20,9 +20,10 @@ public class MyArray {
 			for (int j = i + 1; j < result.length; j++) {
 				if (result[i] == result[j]) {
 					for (int h = j; h < result.length - 1; h++) {
-						int temp = result[h];
+//						int temp = result[h];
+//						result[h] = result[h + 1];
+//						result[h + 1] = temp;
 						result[h] = result[h + 1];
-						result[h + 1] = temp;
 					}
 					result = Arrays.copyOf(result, result.length - 1);
 				}

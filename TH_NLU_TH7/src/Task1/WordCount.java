@@ -22,10 +22,7 @@ public class WordCount {
 
 	@Override
 	public boolean equals(Object obj) {
-//		System.out.println("called.");
-		
-		if (obj == null || obj.getClass() != getClass())
-			return false;
+		if (obj == null || obj.getClass() != getClass()) return false;
 		else {
 			WordCount c = (WordCount) obj;
 			return this.word.equals(c.word);

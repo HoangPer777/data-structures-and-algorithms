@@ -1,4 +1,8 @@
-package Task2;
+ package Task2;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SinglyLinkedList<E> {
 	private Node<E> head = null;
@@ -38,7 +42,6 @@ public class SinglyLinkedList<E> {
 //Adds a new element to the front of the list.
 	public void addFirst(E e) {
 		Node<E> newNode = new Node<>(e, head);
-//		Node newNode = new Node<E>(e);
 		if (isEmpty()) {
 			tail = newNode;
 		}
@@ -119,5 +122,6 @@ public class SinglyLinkedList<E> {
 		System.out.println("removeLast = " + list.removeLast());
 
 		list.display();
+		
 	}
 }

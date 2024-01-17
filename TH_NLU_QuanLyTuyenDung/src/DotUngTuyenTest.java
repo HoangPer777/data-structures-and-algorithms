@@ -11,7 +11,7 @@ class DotUngTuyenTest {
 		
 		UngCuVien ungCuVien4 = new UngCuVien("05", "Thai", 2002, 7);
 		UngCuVien ungCuVien5 = new UngCuVien("06", "Nhi", 2006, 9);
-		UngCuVien ungCuVien6 = new UngCuVien("07", "Tuyen", 2000, 9);
+		UngCuVien ungCuVien6 = new UngCuVien("07", "Tuyen", 2000, 3);
 		UngCuVien ungCuVien7 = new UngCuVien("08", "Nhu", 2009, 4);
 		
 		UngCuVien ungCuVien8 = new UngCuVien("09", "Bao", 2000, 9);
@@ -41,8 +41,8 @@ class DotUngTuyenTest {
 		dotUngTuyen.add(viTriViecLam2);
 		
 //		System.out.println(dotUngTuyen.timUngCuVienDiemSoCaoNhat());
-//		System.out.println(dotUngTuyen.thongKeUngCuVienTheoDiemSo());
-		System.out.println(dotUngTuyen.timUngCuVien("frontEnd", 9).toString());
+		System.out.println(dotUngTuyen.thongKeUngCuVienTheoDiemSo());
+//		System.out.println(dotUngTuyen.timUngCuVien("frontEnd", 9).toString());
 		
 	}
 

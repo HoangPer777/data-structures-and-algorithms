@@ -129,22 +129,11 @@ public class MyWordCount {
 	// data/hamlet.txt (or fit.txt) according ascending order of tokens
 	// Example: An - 3, Bug - 10, ...
 	public Set<WordCount> printWordCounts() {
-		TreeSet<WordCount> treeSet = new TreeSet<WordCount>(byAppear_word);
-
+		TreeSet<WordCount> treeSet = new TreeSet<WordCount>((o1, o2) -> 
+		((o1.count != o2.count) ? (o1.count - o2.count) : o1.word.compareTo(o2.word)));
 		treeSet.addAll(getWordCounts());
-
 		return treeSet;
-		
-		
 	}
-	Comparator<WordCount> byAppear_word = new Comparator<WordCount>() {
-		@Override
-		public int compare(WordCount o1, WordCount o2) {
-			return ((o1.count != o2.count) ? (o1.count - o2.count) : o1.word.compareTo(o2.word));
-
-		}
-
-	};
 
 	// Prints out the number of times each unique token appears in the file
 	// data/hamlet.txt (or fit.txt) according descending order of occurences

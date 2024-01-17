@@ -65,9 +65,6 @@ public class Task2 {
 		return sb.toString();
 	}
 	
-	
-	
-	
 //	
 	public void encrypt(String srcFile, String desFile) {
 	    try {

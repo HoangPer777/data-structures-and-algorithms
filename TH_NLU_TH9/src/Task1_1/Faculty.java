@@ -58,9 +58,11 @@ public class Faculty {
 				if (result.containsKey(year)) {
 					result.get(year).add(student);
 				} else {
-					ArrayList<Student> value = new ArrayList<Student>();
-					value.add(student);
-					result.put(year, value);
+//					ArrayList<Student> value = new ArrayList<Student>();
+//					value.add(student);
+//					result.put(year, value);
+					result.put(year, new ArrayList<Student>());
+					result.get(year).add(student);
 				}
 			}
 		}

@@ -36,6 +36,10 @@ public abstract class ABook {
 	}
 
 
+	public String getTitle() {
+		return title;
+	}
+
 	public abstract String whatType();
 
 	protected abstract boolean magazineIs10Ago();

@@ -97,6 +97,9 @@ public class ListBook {
 			}
 		};
 		result.sort(byName_pushlistYear);
+		
+//		result.sort((o1, o2) -> (o1.getPushlistYear() == o2.getPushlistYear()) ? (o1.getPushlistYear() - o2.getPushlistYear()): (o1.getTitle().compareTo(o2.getTitle())));
+//		result.sort(Comparator.comparing(ABook :: getPushlistYear).thenComparing(ABook :: getTitle));
 		return result;
 	}
 	

@@ -22,7 +22,6 @@ public class SinhVien {
 		return hoTen;
 	}
 
-
 	public boolean isGioiTinh() {
 		return gioiTinh;
 	}

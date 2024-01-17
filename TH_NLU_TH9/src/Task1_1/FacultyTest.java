@@ -79,7 +79,6 @@ class FacultyTest {
 		listCourse.add(course);
 		listCourse.add(course2);
 		
-
 		Faculty faculty = new Faculty("FIT", "HCMC", listCourse);
 		System.out.println(faculty.getMaxPracticalCourse());
 		System.out.println("\nGroupStudentsByYear: ");

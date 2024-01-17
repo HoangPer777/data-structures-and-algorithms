@@ -206,7 +206,7 @@ public class MyArrayList<E> {
 //		System.out.println(list.get(5));
 
 //		test set(int i, E e)
-		list.set(3, -1);
+		list.set(1, -1);
 		System.out.println("set: ");
 		for (int i = 0; i < list.size; i++) {
 			System.out.print(list.get(i) + ", ");

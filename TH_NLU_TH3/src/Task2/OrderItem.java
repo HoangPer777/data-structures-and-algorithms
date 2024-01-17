@@ -1,5 +1,7 @@
 package Task2;
 
+import java.util.Comparator;
+
 public class OrderItem implements Comparable<OrderItem> {
 //public class OrderItem{
 	private Product p;
@@ -23,11 +25,8 @@ public class OrderItem implements Comparable<OrderItem> {
 	public String toString() {
 		return p + ", quality=" + quality + "]";
 	}
-
 	public int compareTo(OrderItem o) {
-		// TODO Auto-generated method stub
 		return this.p.getId().compareTo(o.p.getId());
-
 	}
 //	anonymous
 //	public static void sortByID(Product[] products) {
