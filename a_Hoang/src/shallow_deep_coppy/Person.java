@@ -32,20 +32,22 @@ public class Person implements Cloneable {
 	}
 
 	public static void main(String[] args) throws CloneNotSupportedException {
-		Person p1 = new Person("001", "Binh");
-		Person p2 = new Person("002", "An");
-		Person p3 = new Person("003", "Mai");
-
-		Person[] contacts = { p1, p2, p3 };
+//		Person p1 = new Person("001", "Binh");
+//		Person p2 = new Person("002", "An");
+//		Person p3 = new Person("003", "Mai");
+//
+//		Person[] contacts = { p1, p2, p3 };
+//		
+////		Person[] guests = contacts.clone();
+//		
 //		Person[] guests = new Person[contacts.length];
-		Person[] guests = contacts.clone();
 //		for(int i = 0; i < contacts.length;i++) {
 //			guests[i] = (Person) contacts[i].clone();
 //		}
-		contacts[0].setName("Tam");
-
-		System.out.println(Arrays.toString(contacts));
-		System.out.println(Arrays.toString(guests));
+//		contacts[0].setName("Tam");
+//
+//		System.out.println(Arrays.toString(contacts));
+//		System.out.println(Arrays.toString(guests));
 
 //		String s1 = new String("hoang");
 //		String s2 = new String("hoang");
@@ -64,16 +66,16 @@ public class Person implements Cloneable {
 //		String d = ((a + b) + c);
 //		System.out.println(!((a + b) + c).equals(a + (b + c)));
 //		System.out.println((c + zero).equals(zero + c));
-//		System.out.println((a+ null).equals(a + "null"));
-//		
-		List<Integer> list = new ArrayList<Integer>();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		for(int i = 0; i < list.size();i++) {
-			list.remove(i);
-		}
-		System.out.println(list);
+//		System.out.println((a + null).equals(a + "null"));
+		
+//		List<Integer> list = new ArrayList<Integer>();
+//		list.add(1);
+//		list.add(2);
+//		list.add(3);
+//		list.add(4);
+//		for(int i = 0; i < list.size();i++) {
+//			list.remove(i);
+//		}
+//		System.out.println(list);
 	}
 }

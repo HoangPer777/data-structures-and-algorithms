@@ -9,12 +9,12 @@ import java.util.List;
 public class linkedList {
 
 	public static void main(String[] args) {
-		LinkedList<String> obj = new LinkedList<String>();
-		obj.add("A");
-		obj.add("B");
-		obj.add("C");
-		obj.removeFirst();
-		System.out.println(obj);
+//		LinkedList<String> obj = new LinkedList<String>();
+//		obj.add("A");
+//		obj.add("B");
+//		obj.add("C");
+//		obj.removeFirst();
+//		System.out.println(obj);
 		
 //		List<String> list = new ArrayList<String>();
 //		list.add("dog");
@@ -23,7 +23,7 @@ public class linkedList {
 //		list.add("lion");
 //		Collections.sort(list);
 //		for(String animal: list) {
-//			System.out.println();
+//			System.out.println(animal);
 //		}
 		
 //		List<String> list1 = new ArrayList<String>();

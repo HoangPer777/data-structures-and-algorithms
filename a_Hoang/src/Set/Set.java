@@ -13,11 +13,11 @@ public class Set {
 //		set.add("Three");
 //		set.add("Four");
 //		set.add("Five");
-//		for (String string : set) {
-//			set.remove("Four");
-//			System.out.println(string);
-//		}
-//		System.out.println();
+////		for (String string : set) {
+////			set.remove("Four");
+////			System.out.println(string);
+////		}
+////		System.out.println();
 //		Iterator<String> iter = set.iterator();
 //		while(iter.hasNext()) {
 //			System.out.println(iter.next());
@@ -43,5 +43,6 @@ public class Set {
 		}
 	
 		System.out.println(set1.toString());
+		
 	}
 }

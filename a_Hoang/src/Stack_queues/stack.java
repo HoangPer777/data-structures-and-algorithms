@@ -16,11 +16,14 @@ public class stack {
 		stack.push("two");
 		stack.push("three");
 		stack.push("four");
-
-		while (!stack.isEmpty()) {
-			String next = stack.pop();
-			backup.push(next);
+		for(int i = 0; i < stack.size() ; i++) {
+			stack.get(i);
 		}
+
+//		while (!stack.isEmpty()) {
+//			String next = stack.pop();
+//			backup.push(next);
+//		}
 //		String a = stack.pop();
 //		String b = stack.peek();
 //		System.out.println(stack.isEmpty());
@@ -40,12 +43,12 @@ public class stack {
 //		System.out.println(s);
 		
 
-//		Stack obj = new Stack();
+		Stack obj = new Stack();
 //		Stack<Integer> obj = new Stack<Integer>();
-//		obj.push(new Integer(2));
-//		obj.pop();
-//		obj.push(new Integer(5));
-//		System.out.println(obj);
+		obj.push(new Integer(2));
+		obj.pop();
+		obj.push(new Integer(5));
+		System.out.println(obj);
 	}
 
 }

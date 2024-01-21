@@ -1,6 +1,10 @@
 package Task1;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Task1_2 {
 	private int[] array;
@@ -37,10 +41,10 @@ public class Task1_2 {
 		return binarySearch(target, low, hight);
 	}
 
-	public int binarySearch(int target, int low, int hight) {		
+	public int binarySearch(int target, int low, int hight) {
 		if (low > hight) {
 			return -1;
-		}else {
+		} else {
 			int mid = (low + hight) / 2;
 			if (target == array[mid]) {
 				return mid + 1;
@@ -50,20 +54,24 @@ public class Task1_2 {
 				return binarySearch(target, mid + 1, hight);
 			}
 		}
-		
 
 	}
 
 	public static void main(String[] args) {
-		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		Task1_2 task = new Task1_2(array);
+//		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//		Task1_2 task = new Task1_2(array);
+//
+//		int result = task.iterativeBinarySearch(10);
+//		System.out.println(result);
+//
+//		int result2 = task.recursiveBinarySearch(2);
+//		System.out.println(result2);
 
-		int result = task.iterativeBinarySearch(10);
-		System.out.println(result);
-
-		int result2 = task.recursiveBinarySearch(2);
-		System.out.println(result2);
-		
-	
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		list.addFirst(1);
+		list.add(2);
+		list.add(2);
+		list.remove();
+		System.out.println(list);
 	}
 }

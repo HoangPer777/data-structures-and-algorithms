@@ -45,5 +45,7 @@ public class MyFIFO_App {
 //		stutter(input);
 		System.out.println();
 		mirror(input);
+		
+		
 	}
 }

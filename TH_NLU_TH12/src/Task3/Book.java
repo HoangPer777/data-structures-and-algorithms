@@ -35,6 +35,10 @@ public class Book {
 	}
 
 
+	public String getType() {
+		return type;
+	}
+
 	public boolean similarAuthor(Book book, String authorName) {
 		// TODO Auto-generated method stub
 		for(Author author: authors) {

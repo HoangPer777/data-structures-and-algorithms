@@ -6,13 +6,14 @@ public class Chi_Dep {
 	private String hoTen;
 	private TreeSet<QuaTrinhLamNghe> ngheNghiepList = new TreeSet<>();
 	private LinkedList<Integer> diemQuaTrinh = new LinkedList<Integer>();
-	private Boolean biLoai;
+	private boolean biLoai;
 	private String tenVongBiLoai;
 	public Chi_Dep(String id, String hoTen) {
 		super();
 		this.id = id;
 		this.hoTen = hoTen;
 	}
+
 @Override
 public String toString() {
 	return "\n" + "Chi_Dep [" + hoTen + ", diem=" + diemQuaTrinh + " Sum="+getTongDiemQuaTrinh()+ ", biLoai=" + biLoai + ", tenVongBiLoai="
@@ -62,5 +63,7 @@ public String toString() {
 		}
 		return sum;
 	}
+	
+	
 
 }

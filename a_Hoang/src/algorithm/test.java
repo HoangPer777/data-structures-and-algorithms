@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class test {
@@ -28,10 +29,11 @@ public class test {
 
 //	ex3
 	public static ArrayList<Integer> danhSachChiaHetCho2(Iterator<Integer> iter) {
-		ArrayList<Integer> result = new ArrayList();
+		ArrayList<Integer> result = new ArrayList<>();
 		while (iter.hasNext()) {
 			if (iter.next() % 2 == 0) {
 				result.add(iter.next());
+				System.out.println(result);
 			}
 		}
 		return result;
@@ -54,7 +56,7 @@ public class test {
 
 	public static void main(String[] args) {
 //		ex 11
-		// insert code here printf(1, 2)
+//		// insert code here printf(1, 2)
 //		Set set = new TreeSet(); 
 ////		Set set = new HashSet(); 
 //		set.add(new Integer(2)); 
@@ -62,24 +64,22 @@ public class test {
 //		System.out.println(set); 
 
 //		ex12
-		ArrayList<String> strings = new ArrayList<String>();
-		strings.add("aAaA");
-		strings.add("AaA");
-		strings.add("aAa");
-		strings.add("AAaa");
-		Collections.sort(strings);
-		for (String s : strings) {
-			System.out.print(s + " ");
-		}
+//		ArrayList<String> strings = new ArrayList<String>();
+//		strings.add("aAaA");
+//		strings.add("AaA");
+//		strings.add("aAa");
+//		strings.add("AAaa");
+//		Collections.sort(strings);
+//		for (String s : strings) {
+//			System.out.print(s + " ");
+//		}
 
 //		ex 10
 //		List list = new ArrayList(); 
 //		list.add("1"); list.add("2"); list.add("3"); 
 //		for (Object obj: reverse(list)) 
 //		System.out.print(obj + ", "); 
-//		for (Object obj : get()) {
-//			System.out.print(obj + ", ");
-//		}
+		
 
 //		ex 9
 //		for (Object obj : get()) {
@@ -101,11 +101,12 @@ public class test {
 //		LinkedList<Integer> list = new LinkedList();
 //		list.add(9);
 //		list.addFirst(10);
-//		list.add(7);
+//		list.add(2, 7);
 //		list.addLast(11);
 //		list.add(8);
 //		System.out.println(list);
-//		HashMap<String, Integer> m = new HashMap();
+		
+//		HashMap<String, Integer> m = new HashMap<String, Integer>();
 //		m.put("I", 3);
 //		m.put("will", 5);
 //		m.put("pass", 7);
@@ -113,17 +114,17 @@ public class test {
 //		System.out.println(m);
 
 //		ex3
-//		List<Integer> list3 = new ArrayList<Integer>();
-//		for (int i = 1; i < 10; i++) { // i < 9 thì sẽ lỗi
-//			list3.add(i);
-//		}
-//		ListIterator<Integer> iter3 = list3.listIterator();
-//		System.out.println(danhSachChiaHetCho2(iter3).toString());
+		List<Integer> list3 = new ArrayList<Integer>();
+		for (int i = 1; i < 8; i++) { // i = số lẻ thì sẽ lỗi
+			list3.add(i);
+		}
+		ListIterator<Integer> iter3 = list3.listIterator();
+		danhSachChiaHetCho2(iter3).toString();
 
 //		ex4
 //		int x = 10;
 //		int y = 10;
-//		if (x++ < 11 || ++y > 10) {
+//		if ( ++y > 11 || x++ < 11 ) {
 //			x++;
 //		}
 //		System.out.println("x: " + x);
@@ -139,18 +140,18 @@ public class test {
 //		i2 = 47; 
 //		set.remove(i2); System.out.print(set.size() + " ");
 
-		TreeSet<Integer> s = new TreeSet<Integer>();
-		TreeSet<Integer> subs = new TreeSet<Integer>();
-		for (int i = 606; i < 613; i++)
-			if (i % 2 == 0)
-				s.add(i);
-		subs = (TreeSet) s.subSet(608, true, 611, true);
-//		subSet(fromElement, fromInclusive, toElement, toInclusive);
-//		fromInclusive = true -> [
-//		fromInclusive = false -> ]
-//		toInclusive cũng thế	
-		s.add(609);
-		System.out.println(s + " " + subs);
+//		TreeSet<Integer> s = new TreeSet<Integer>();
+//		TreeSet<Integer> subs = new TreeSet<Integer>();
+//		for (int i = 606; i < 613; i++)
+//			if (i % 2 == 0)
+//				s.add(i);
+//		subs = (TreeSet) s.subSet(608, true, 611, true);
+////		subSet(fromElement, fromInclusive, toElement, toInclusive);
+////		fromInclusive = true -> [
+////		fromInclusive = false -> ]
+////		toInclusive cũng thế	
+//		s.add(609);
+//		System.out.println(s + " " + subs);
 		
 		
 	}

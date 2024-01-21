@@ -18,13 +18,13 @@ public class Library {
 		this.name = name;
 		this.books = books;
 	}
-	
-@Override
+
+	@Override
 	public String toString() {
-		return "Library [name=" + name + ", books=" + books + "]" ;
+		return "Library [name=" + name + ", books=" + books + "]";
 	}
 
-	//	trả về quyển sách được xuất bản lâu nhất.
+	// trả về quyển sách được xuất bản lâu nhất.
 	public Book getOldestBook() {
 		Book oldestBook = books.get(0);
 		int oldYear = books.get(0).getYear();
@@ -36,14 +36,24 @@ public class Library {
 		}
 		return oldestBook;
 	}
-public Map<String, Integer> thongke (){
-	return null;
-	
-}
+
+	public Map<String, Integer> thongke() {
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		for(Book book : books){
+			if(result.containsKey(book.getType())){
+			result.put(book.getType(), result.get(book.getType()) + 1);
+			}else{
+				result.put(book.getType(),  1);
+			}
+		}
+		return result;
+
+	}
+
 //	để thống kê các quyển sách theo năm, với key là năm xuất bản và 
 //	value là các quyển sách xuất bản trong năm đó.
 	public Map<Integer, List<Book>> getBooksByYears() {
-		
+
 		Map<Integer, List<Book>> result = new HashMap<Integer, List<Book>>();
 		for (Book book : books) {
 			if (!result.containsKey(book.getYear())) {
@@ -68,20 +78,21 @@ public Map<String, Integer> thongke (){
 			}
 		};
 		Set<Book> result = new TreeSet<Book>(byName);
-		for(Book book : books) {
-			if((book.getYear() == year)  ) {
-				if(similarAuthor(book, authorName)){
+		for (Book book : books) {
+			if ((book.getYear() == year)) {
+				if (similarAuthor(book, authorName)) {
 					result.add(book);
 				}
-				
+
 			}
 		}
 		return result;
 	}
-	
-	public boolean similarAuthor(Book book,String authorName ) {
+
+	public boolean similarAuthor(Book book, String authorName) {
 		return book.similarAuthor(book, authorName);
 	}
+
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<Integer>();
 		list.add(1);
@@ -89,6 +100,6 @@ public Map<String, Integer> thongke (){
 		list.add(3);
 		list.remove(2);
 		System.out.println(list);
-		
+
 	}
 }

@@ -26,10 +26,14 @@ public class arr {
 //		int arr1[] = {1,2,3};
 //		int arr2[] = arr1.clone();
 //		arr1[0]++;
+//		String arr1[] = {"hoang" , "pro"};
+//		String arr2[] = arr1.clone();
+//		arr1[0] = "h";
 //		System.out.println("arr1[0] " + arr1[0]);
 //		System.out.println("arr2[0] " + arr2[0]);
 		
-//		tip3
+		
+//		tip4
 //		int[] arr1 = {1, 2, 3};
 //	
 //		int arr2[] = new int [arr1.length];
